@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link href="css/style.css" rel="stylesheet"> -->
+</head>
+
+<body>
+    <div>
+        <label>光度：</label>
+        <input id="lightValue" type="number" value="500">
+        <!-- <input type="button" onclick="loop()" value="送出"> -->
+    </div>
+
+    <div>
+        <label>結果：</label>
+        <label id="turnValue">none</label>
+    </div>
+
+</body>
+
+
+<script>
+
+    var light;    //判斷光的亮度
+    var turn;     //判斷是否要亮或暗
+
+    setup();
+
+    function setup() {
+        if (true) {
+            //console.log("1");
+            cpf.setPinMode('["resetPin"],["setPinMode", "analog", 0, "INPUT"],["setPinMode", "digital", 2,"INPUT"]');
+        }
+        loop();
+    }
+
+    function loop() {
+        if (true) {
+            //console.log("2");
+            light = cpf.get("a0");
+            light = document.getElementById("lightValue").value;
+            //console.log(light);
+
+            turn = lightTurn(parseInt(light));
+            //console.log(turn);
+
+            document.getElementById("lightValue").innerHTML = light;
+            document.getElementById("turnValue").innerHTML = turn;
+        } setTimeout(loop, 1000);
+    }
+
+
+    function lightTurn(value) {
+        console.log("111");
+        if (value > 500) {
+            cpf.set("white led", 1); // turn on
+            //return 1;
+        }
+        else {
+            cpf.set("white led", 0); // turn off
+            //return 0;
+        }
+    }
+    //cpf.repeat();
+
+</script>
+
+</html>
