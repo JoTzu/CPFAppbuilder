@@ -15,18 +15,57 @@
 
     <div class="container">
         <div class="images">
-            <img class="thermometer" src="img/thermometer.png">
-            <img class="pointer" src="img/pointer.png">
+            <img id="thermometer" src="img/thermometer.png">
+            <img id="pointer" src="img/pointer.png">
         </div>
 
         <br/>
 
         <h3>Degree：
-            <span class="degree">none</span>°</h3>
+            <span id="degree">none</span>°</h3>
         <h3>Temperature：
-            <span class="temp">none</span>°C</h3>
+            <span id="temp">none</span>°C</h3>
     </div>
-
 </body>
+
+<script>
+    var celsius = 0;
+    var degree = 0;
+
+    setup();
+
+    function loop() {
+        if (cpf) {
+            tempdata = cpf.get("a1");
+            celsius = toCelsius(tempdata);
+            document.getElementById("temp").innerHTML = celsius;
+
+            if (celsius >= -30 && celsius <= 50) {
+                degree = Math.floor((180 / 80) * celsius + 67.5);
+                document.getElementById("pointer").style.transform = "rotate(" + degree + "deg)";
+                document.getElementById("degree").innerHTML = degree;
+                cpf.request('["analogWrite",4,+' + Math.abs(degree - 180) + ']');
+
+            }
+        }
+        setTimeout(loop, 1000);
+    }
+    loop();
+
+    function toCelsius(value) {
+        var resistance = parseFloat((1023 - value) * 10000 / value);
+        var temperature = 1 / (Math.log(resistance / 10000) / 3975 + 1 / 298.15) - 273.15;
+
+        return temperature.toFixed(2);
+    }
+
+
+    function setup() {
+        if (true) {
+            cpf.setPinMode('["resetPin"],["setPinMode", "analog", 1, "INPUT"],["setPinMode", "digital", 4,"SERVO"]');
+        }
+    }
+
+</script>
 
 </html>
