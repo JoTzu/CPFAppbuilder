@@ -1,0 +1,35 @@
+* {
+    font-family: Microsoft JhengHei;
+}
+
+html,body {
+margin: 0;
+padding: 0;
+overflow: hidden;
+}
+
+#wrap {
+    width: 500px;
+    height: 500px;
+    font-size: 50%;
+    margin: 0 auto;
+}
+
+/* .piano {
+    width: 400px;
+    height: 100px;
+} */
+
+.p0 {
+    width: 30px;
+    height: 100px;
+    background: #FFF;
+    border-color: #000;
+    border-width: 0.5px;
+}
+
+#music {
+    width: 50px;
+    height: 30px;
+    margin-left: 5%;
+}

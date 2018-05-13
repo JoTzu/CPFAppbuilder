@@ -2,14 +2,129 @@
 <html lang="en">
 
 <head>
-    <title></title>
+    <title>Piano</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="main.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 </head>
 
 <body>
+    <h1>Piano</h1>
 
+    <div id="wrap">
+        <div class="col-xs-12 piano">
+            <button id="p1" class="p0" onclick="p1()">Do</button>
+            <button id="p2" class="p0" onclick="p2()">Re</button>
+            <button id="p3" class="p0" onclick="p3()">Mi</button>
+            <button id="p4" class="p0" onclick="p4()">Fa</button>
+            <button id="p5" class="p0" onclick="p5()">So</button>
+            <button id="p6" class="p0" onclick="p6()">La</button>
+            <button id="p7" class="p0" onclick="p7()">Si</button>
+            <button id="p8" class="p0" onclick="p8()">Do</button>
+            <button id="music" onclick="p8()">music</button>
+        </div>
+    </div>
 </body>
+
+<script>
+
+    var tone;
+
+    //setup();
+
+    function loop() {
+        //console.log(tone);
+        if (cpf) {
+            switch (tone) {
+                case 1:
+                    cpf.request('["tone_play", 6, 261, 300],["sleep", 300]');
+                    break;
+                case 2:
+                    cpf.request('["tone_play", 6, 293, 300],["sleep", 300]');
+                    break;
+                case 3:
+                    cpf.request('["tone_play", 6, 329, 300],["sleep", 300]');
+                    break;
+                case 4:
+                    cpf.request('["tone_play", 6, 349, 300],["sleep", 300]');
+                    break;
+                case 5:
+                    cpf.request('["tone_play", 6, 392, 300],["sleep", 300]');
+                    break;
+                case 6:
+                    cpf.request('["tone_play", 6, 440, 300],["sleep", 300]');
+                    break;
+                case 7:
+                    cpf.request('["tone_play", 6, 493, 300],["sleep", 300]');
+                    break;
+                case 8:
+                    cpf.request('["tone_play", 6, 523, 300],["sleep", 300]');
+                    break;
+            }
+        }
+    }
+
+    function p1() {
+        tone = 1;
+        loop();
+    }
+
+    function p2() {
+        tone = 2;
+        loop();
+    }
+
+    function p3() {
+        tone = 3;
+        loop();
+    }
+
+    function p4() {
+        tone = 4;
+        loop();
+    }
+
+    function p5() {
+        tone = 5;
+        loop();
+    }
+
+    function p6() {
+        tone = 6;
+        loop();
+    }
+
+    function p7() {
+        tone = 7;
+        loop();
+    }
+
+    function p8() {
+        tone = 8;
+        loop();
+    }
+
+
+
+    function setup() {
+        if (cpf) {
+            cpf.setPinMode('["resetPin"],["setPinMode", "digital", 6, "TONE"] ');
+        }
+    }
+
+
+    //cpf.request('["tone_play", 6, 261, 300],["sleep", 300],["tone_play", 6, 293, 300],["sleep", 300],["tone_play", 6, 329, 300],["sleep", 300],["tone_play", 6, 349, 300],["sleep", 300],["tone_play", 6, 392, 300],["sleep", 300],["tone_play", 6, 440, 300],["sleep", 300],["tone_play", 6, 493, 300],["sleep", 300],["tone_play", 6, 349, 523]');
+
+//261 - Do
+//293 - Re
+//329 - Mi
+//349 - Fa
+//392 - So
+//440 - La
+//493 - Si
+//523 - Do
+</script>
 
 </html>
