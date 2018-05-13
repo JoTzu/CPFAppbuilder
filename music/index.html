@@ -30,7 +30,7 @@
 
 <script>
 
-    var tone;
+    var tone = 0;
 
     setup();
 
@@ -68,42 +68,42 @@
 
     function p1() {
         tone = 1;
-        loop();
+        cpf.request('["tone_play", 6, 261, 300],["sleep", 300]');
     }
 
     function p2() {
         tone = 2;
-        loop();
+        cpf.request('["tone_play", 6, 293, 300],["sleep", 300]');
     }
 
     function p3() {
         tone = 3;
-        loop();
+        cpf.request('["tone_play", 6, 329, 300],["sleep", 300]');
     }
 
     function p4() {
         tone = 4;
-        loop();
+        cpf.request('["tone_play", 6, 349, 300],["sleep", 300]');
     }
 
     function p5() {
         tone = 5;
-        loop();
+        cpf.request('["tone_play", 6, 392, 300],["sleep", 300]');
     }
 
     function p6() {
         tone = 6;
-        loop();
+        cpf.request('["tone_play", 6, 440, 300],["sleep", 300]');
     }
 
     function p7() {
         tone = 7;
-        loop();
+        cpf.request('["tone_play", 6, 493, 300],["sleep", 300]');
     }
 
     function p8() {
         tone = 8;
-        loop();
+        cpf.request('["tone_play", 6, 523, 300],["sleep", 300]');
     }
 
     function music() {
