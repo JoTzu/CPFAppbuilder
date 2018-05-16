@@ -22,7 +22,7 @@
     function light() {
         //setTimeout(500); 
         if (cpf) {
-            if (turn >= 255) {
+            if (turn >= 0) {
                 cpf.request(`["grove_setColorRGB", 0, ${turn}, ${turn}, ${turn}]`);
                 turn = turn - 15;
             }
