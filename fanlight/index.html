@@ -24,13 +24,14 @@
         var turn = 255;
         if (cpf) {
             cpf.request('["grove_setColorRGB", 0, 255, 255, 255]');
-            if (turn > 0) {
-                turn = turn + 15;
+            if (turn >= 255) {
+                turn = turn - 15;
                 cpf.request(`["grove_setColorRGB", 0, ${turn}, ${turn}, ${turn}]`);
             }
             else {
-                turn = turn - 15;
+                turn = turn + 15;
                 cpf.request(`["grove_setColorRGB", 0, ${turn}, ${turn}, ${turn}]`);
+                if (turn > 255) { turn = 255 }
             }
         }
     } setTimeout(light, 200);
