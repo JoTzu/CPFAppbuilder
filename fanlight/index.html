@@ -21,15 +21,16 @@
 
     function light() {
         //setTimeout(500);
+        var turn = 255;
         if (cpf) {
             cpf.request('["grove_setColorRGB", 0, 255, 255, 125]');
+
         }
         setTimeout(2000);
         if (cpf) {
             cpf.request('["grove_setColorRGB", 0, 255, 255, 0]');
         }
-        reset();
-    } setTimeout("light()", 2000);
+    } setTimeout(light, 2000);
 
     function setup() {
         if (cpf) {
