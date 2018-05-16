@@ -16,11 +16,11 @@
 
 <script>
 
+    var turn = 255;
     setup();
 
     function light() {
-        //setTimeout(500);   
-        var turn = 255;
+        //setTimeout(500); 
         if (cpf) {
             if (turn >= 255) {
                 cpf.request(`["grove_setColorRGB", 0, ${turn}, ${turn}, ${turn}]`);
@@ -31,7 +31,8 @@
                 turn = turn + 15;
                 if (turn > 255) { turn = 255 }
             }
-        } setTimeout(light, 200);
+        }
+        setTimeout(light, 200);
     }
 
     function setup() {
