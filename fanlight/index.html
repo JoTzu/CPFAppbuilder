@@ -12,6 +12,8 @@
 
 <body>
     <h1>hello</h1>
+    <button onclick="light()">light</button>
+    <button onclick="fan()">fan</button>
 </body>
 
 <script>
@@ -22,6 +24,30 @@
 
     function light() {
         //setTimeout(500); 
+        if (cpf) {
+            if (turn == true) {
+                cpf.request(`["grove_setColorRGB", 0, ${set}, ${set}, ${set}]`);
+                set = set - 40;
+                if (set < 0) {
+                    turn = false;
+                    set = 0;
+                }
+            }
+            else {
+                cpf.request(`["grove_setColorRGB", 0, ${set}, ${set}, ${set}]`);
+                set = set + 40;
+                if (set > 255) {
+                    turn = true;
+                    set = 255;
+                }
+            }
+        }
+        setTimeout(light, 100);
+    }
+    light();
+
+    /*function fan() {
+        setTimeout(500); 
         if (cpf) {
             if (turn == true) {
                 cpf.request(`["grove_setColorRGB", 0, ${set}, ${set}, ${set}]`);
@@ -42,7 +68,8 @@
         }
         setTimeout(light, 100);
     }
-    light();
+    fan();*/
+
     function setup() {
         if (cpf) {
             cpf.setPinMode('["resetPin"],["grove_newChainableLED",7, 8, 1]', '["setPinMode", "digital", 6, "OUTPUT"]');
