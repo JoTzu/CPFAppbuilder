@@ -23,14 +23,18 @@
         if (cpf) {
             cpf.request('["grove_setColorRGB", 0, 255, 255, 255]');
         }
-        setTimeout("light()", 500);
+        setTimeout(500);
         if (cpf) {
             cpf.request('["grove_setColorRGB", 0, 255, 255, 125]');
         }
-        setTimeout("light()", 500);
+        setTimeout(500);
         if (cpf) {
             cpf.request('["grove_setColorRGB", 0, 255, 255, 0]');
         }
+
+        // function loop(){
+
+        // }
     } setTimeout("light()", 1000);
 
 
