@@ -34,12 +34,11 @@
         }
         setTimeout(light, 200);
     }
-
+    light();
     function setup() {
         if (cpf) {
             cpf.setPinMode('["resetPin"],["grove_newChainableLED",7, 8, 1]', '["setPinMode", "digital", 6, "OUTPUT"]');
         }
-        light();
     }
 
 </script>
