@@ -20,21 +20,18 @@
 
 
     function light() {
+        //setTimeout(500);
         if (cpf) {
-            cpf.setChainableLed("0," + "125," + "255," + "255;")
+            cpf.request('["grove_setColorRGB", 0, 255, 255, 125]');
         }
-        // setTimeout(500);
-        // if (cpf) {
-        //     cpf.request('["grove_setColorRGB", 0, 255, 255, 125]');
-        // }
-        // setTimeout(500);
-        // if (cpf) {
-        //     cpf.request('["grove_setColorRGB", 0, 255, 255, 0]');
-        // }
+        //setTimeout(500);
+        /*if (cpf) {
+            cpf.request('["grove_setColorRGB", 0, 255, 255, 0]');
+        }
 
-        // function loop(){
+        function loop() {
 
-        // }
+        }*/
         reset();
     } setTimeout("reset()", 1000);
 
