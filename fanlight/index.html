@@ -24,14 +24,20 @@
         //setTimeout(500); 
         if (cpf) {
             if (turn == true) {
-                cpf.request(`["grove_setColorRGB", 0, ${turn}, ${turn}, ${turn}]`);
+                cpf.request(`["grove_setColorRGB", 0, ${set}, ${set}, ${set}]`);
                 set = set - 15;
-                if (set < 0) { turn = !turn; set = 0; }
+                if (set < 0) {
+                    turn = false;
+                    set = 0;
+                }
             }
             else {
-                cpf.request(`["grove_setColorRGB", 0, ${turn}, ${turn}, ${turn}]`);
+                cpf.request(`["grove_setColorRGB", 0, ${set}, ${set}, ${set}]`);
                 set = set + 15;
-                if (set > 255) { turn = !turn; set = 255; }
+                if (set > 255) {
+                    turn = true;
+                    set = 255;
+                }
             }
         }
         setTimeout(light, 200);
