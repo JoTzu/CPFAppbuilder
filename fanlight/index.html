@@ -13,6 +13,7 @@
 <body>
     <h1>hello</h1>
     <button onclick="light()">light</button>
+    <p></p>
     <button onclick="fan()">fan</button>
 </body>
 
@@ -46,11 +47,11 @@
     }
     light();
 
-    /*function fan() {
-        setTimeout(500); 
+    function fan() {
+        //setTimeout(500); 
         if (cpf) {
             if (turn == true) {
-                cpf.request(`["grove_setColorRGB", 0, ${set}, ${set}, ${set}]`);
+                cpf.request('["analogWrite", 3, ' + Number(set) + ']');
                 set = set - 25;
                 if (set < 0) {
                     turn = false;
@@ -58,7 +59,7 @@
                 }
             }
             else {
-                cpf.request(`["grove_setColorRGB", 0, ${set}, ${set}, ${set}]`);
+                cpf.request('["analogWrite", 3, ' + Number(set) + ']');
                 set = set + 25;
                 if (set > 255) {
                     turn = true;
@@ -66,9 +67,9 @@
                 }
             }
         }
-        setTimeout(light, 100);
+        setTimeout(fan, 100);
     }
-    fan();*/
+    fan();
 
     function setup() {
         if (cpf) {
