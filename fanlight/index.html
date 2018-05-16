@@ -17,7 +17,7 @@
 <script>
 
     setup();
-
+    light();
 
     function light() {
         //setTimeout(500);
@@ -31,16 +31,10 @@
         reset();
     } setTimeout("light()", 2000);
 
-
-
-
-
-
     function setup() {
         if (cpf) {
             cpf.setPinMode('["resetPin"],["grove_newChainableLED",7, 8, 1]', '["setPinMode", "digital", 6, "OUTPUT"]');
         }
-        light();
     }
 
 </script>
