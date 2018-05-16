@@ -51,7 +51,7 @@
         //setTimeout(500); 
         if (cpf) {
             if (turn == true) {
-                cpf.request('["analogWrite", 3, ' + Number(set) + ']');
+                cpf.request('["analogWrite", 6, ' + Number(set) + ']');
                 set = set - 25;
                 if (set < 0) {
                     turn = false;
@@ -59,7 +59,7 @@
                 }
             }
             else {
-                cpf.request('["analogWrite", 3, ' + Number(set) + ']');
+                cpf.request('["analogWrite", 6, ' + Number(set) + ']');
                 set = set + 25;
                 if (set > 255) {
                     turn = true;
