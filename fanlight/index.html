@@ -23,19 +23,25 @@
         if (cpf) {
             cpf.request('["grove_setColorRGB", 0, 255, 255, 255]');
         }
-        setTimeout(500);
-        if (cpf) {
-            cpf.request('["grove_setColorRGB", 0, 255, 255, 125]');
-        }
-        setTimeout(500);
-        if (cpf) {
-            cpf.request('["grove_setColorRGB", 0, 255, 255, 0]');
-        }
+        // setTimeout(500);
+        // if (cpf) {
+        //     cpf.request('["grove_setColorRGB", 0, 255, 255, 125]');
+        // }
+        // setTimeout(500);
+        // if (cpf) {
+        //     cpf.request('["grove_setColorRGB", 0, 255, 255, 0]');
+        // }
 
         // function loop(){
 
         // }
-    } setTimeout("light()", 1000);
+        reset();
+    } setTimeout("reset()", 1000);
+
+    function reset() {
+        cpf.setPinMode('["resetPin"],["grove_newChainableLED",7, 8, 0]');
+        light();
+    }
 
 
 
