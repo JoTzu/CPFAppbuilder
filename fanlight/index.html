@@ -23,12 +23,12 @@
         var turn = 255;
         if (cpf) {
             if (turn >= 255) {
-                turn = turn - 15;
                 cpf.request(`["grove_setColorRGB", 0, ${turn}, ${turn}, ${turn}]`);
+                turn = turn - 15;
             }
             else {
-                turn = turn + 15;
                 cpf.request(`["grove_setColorRGB", 0, ${turn}, ${turn}, ${turn}]`);
+                turn = turn + 15;
                 if (turn > 255) { turn = 255 }
             }
         }
