@@ -23,7 +23,7 @@
         //setTimeout(500);
         var turn = 255;
         if (cpf) {
-            cpf.request('["grove_setColorRGB", 0, 125, 125, 125]');
+            cpf.request('["grove_setColorRGB", 0, 255, 255, 255]');
             if (turn > 0) {
                 turn = turn + 15;
                 cpf.request(`["grove_setColorRGB", 0, ${turn}, ${turn}, ${turn}]`);
