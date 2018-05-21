@@ -24,9 +24,8 @@
 
     setup();
 
-    cpf.request(`["grove_setColorRGB", 0, 175, 100, 209]`);
-
     btnAI.addEventListener('click', function (event) {
+        cpf.request(`["grove_setColorRGB", 0, 175, 100, 209]`);
         cpf.initSpeechRecognition("cmn-Hant-TW");
     });
 
