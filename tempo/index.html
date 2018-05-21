@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="main.css" rel="stylesheet">
+</head>
+
+<body>
+    <h1>Tempo</h1>
+
+    <button id="btnAI">Single tone</button>
+
+    <p id="words">none</p>
+</body>
+
+
+<script>
+    var btnAI = document.getElementById("btnAI");
+    var x;
+
+    setup();
+
+    cpf.request(`["grove_setColorRGB", 0, 0, 0, 0]`);
+
+    btnAI.addEventListener('click', function (event) {
+        cpf.initSpeechRecongnition("cmn-Hant-TW");
+    });
+
+    x = 0;
+
+    function GetRecognizeResult(Result, Type) {
+        if (Result.includes("1") || Result.includes("Do")) {
+            x = 1;
+            Result = "Do";
+        }
+        else if (Result.includes("2") || Result.includes("Re")) {
+            x = 2;
+            Result = "Re";
+        }
+        else if (Result.includes("3") || Result.includes("Mi")) {
+            x = 3;
+            Result = "Mi";
+        }
+        else if (Result.includes("4") || Result.includes("Fa")) {
+            x = 4;
+            Result = "Fa";
+        }
+        else if (Result.includes("5") || Result.includes("So")) {
+            x = 5;
+            Result = "So";
+        }
+        else if (Result.includes("6") || Result.includes("La")) {
+            x = 6;
+            Result = "La";
+        }
+        else if (Result.includes("7") || Result.includes("Si")) {
+            x = 7;
+            Result = "Si";
+        }
+
+        document.getElementById("words").innerHTML = Result;
+
+        cpf.SetSpeech("On", "cmn-Hant-TW", "現在你所輸出的音為 " + Result, 1, 2);
+
+        setrgb(x);
+    }
+
+    function tonergb(i) {
+        switch (i) {
+            case 1:     //Do
+                cpf.request(`["grove_setColorRGB", 0, 255, 0, 0]`);
+                cpf.request('["tone_play", 6, 261, 300],["sleep", 300]');
+            case 2:     //Re
+                cpf.request(`["grove_setColorRGB", 0, 255, 140, 0]`);
+                cpf.request('["tone_play", 6, 293, 300],["sleep", 300]');
+            case 3:     //Mi
+                cpf.request(`["grove_setColorRGB", 0, 255, 255, 0]`);
+                cpf.request('["tone_play", 6, 329, 300],["sleep", 300]');
+            case 4:     //Fa
+                cpf.request(`["grove_setColorRGB", 0, 0, 255, 0]`);
+                cpf.request('["tone_play", 6, 349, 300],["sleep", 300]');
+            case 5:     //So
+                cpf.request(`["grove_setColorRGB", 0, 0, 0, 255]`);
+                cpf.request('["tone_play", 6, 392, 300],["sleep", 300]');
+            case 6:     //La
+                cpf.request(`["grove_setColorRGB", 0, 75, 0, 128]`);
+                cpf.request('["tone_play", 6, 440, 300],["sleep", 300]');
+            case 7:     //Si
+                cpf.request(`["grove_setColorRGB", 0, 155, 48, 255]`);
+                cpf.request('["tone_play", 6, 493, 300],["sleep", 300]');
+        }
+        setTimeout(tonergb, 3000);
+        x = 0;
+    }
+
+    function setup() {
+        if (cpf) {
+            cpf.setPinMode('["resetPin"],["grove_newChainableLED",7, 8, 1]', '["setPinMode", "digital", 6, "TONE"] ');
+        }
+    }
+</script>
+
+</html>
