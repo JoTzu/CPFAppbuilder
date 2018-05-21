@@ -14,6 +14,8 @@
     <button id="btnAI">Single tone</button>
 
     <p id="words">none</p>
+
+    <p id="test">test</p>
 </body>
 
 
@@ -22,7 +24,7 @@
     var x;
     var char;
 
-    setup();
+    //setup();
 
     btnAI.addEventListener('click', function (event) {
         cpf.initSpeechRecognition("cmn-Hant-TW");
@@ -67,7 +69,7 @@
             char = "Si";
             //Result = "希";
         }
-
+        document.getElementById("test").innerHTML = x;
         document.getElementById("words").innerHTML = char;
 
         cpf.SetSpeech("On", "cmn-Hant-TW", "現在你所輸出的音為 " + Result, 0.7, 1);
@@ -111,11 +113,11 @@
         char = "none";
     }
 
-    function setup() {
+    /*function setup() {
         if (cpf) {
             cpf.setPinMode('["resetPin"],["grove_newChainableLED",7, 8, 1]', '["setPinMode", "digital", 6, "TONE"] ');
         }
-    }
+    }*/
 </script>
 
 </html>
