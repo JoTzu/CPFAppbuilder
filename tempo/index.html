@@ -27,52 +27,51 @@
     cpf.request(`["grove_setColorRGB", 0, 0, 0, 0]`);
 
     btnAI.addEventListener('click', function (event) {
-        cpf.initSpeechRecognition("en-US");
+        cpf.initSpeechRecognition("cmn-Hant-TW");
     });
 
     function GetRecognizeResult(Result, Type) {
         x = 0;
 
-        if (Result.includes("Mi") /*|| Result.includes("Do")*/) {
+        if (Result.includes("第一個") /*|| Result.includes("Do")*/) {
             x = 1;
-            Result = "Do";
+            char = "Do";
             //Result = "哆";
         }
-        else if (Result.includes("Re") /*|| Result.includes("Re")*/) {
+        else if (Result.includes("第二個") /*|| Result.includes("Re")*/) {
             x = 2;
-            Result = "Re";
+            char = "Re";
             // Result = "蕊";
         }
-        else if (Result.includes("Mi") /*|| Result.includes("Mi")*/) {
+        else if (Result.includes("第三個") /*|| Result.includes("Mi")*/) {
             x = 3;
-            Result = "Mi";
+            char = "Mi";
             //Result = "咪";
         }
-        else if (Result.includes("Fa") /*|| Result.includes("Fa")*/) {
+        else if (Result.includes("第四個") /*|| Result.includes("Fa")*/) {
             x = 4;
-            Result = "Fa";
+            char = "Fa";
             //Result = "發";
         }
-        else if (Result.includes("So") /*|| Result.includes("So")*/) {
+        else if (Result.includes("第五個") /*|| Result.includes("So")*/) {
             x = 5;
-            Result = "So";
+            char = "So";
             //Result = "收";
         }
-        else if (Result.includes("La") /*|| Result.includes("La")*/) {
+        else if (Result.includes("第六個") /*|| Result.includes("La")*/) {
             x = 6;
-            Result = "La";
+            char = "La";
             //Result = "拉";
         }
-        else if (Result.includes("Si") /*|| Result.includes("Si")*/) {
+        else if (Result.includes("第七個") /*|| Result.includes("Si")*/) {
             x = 7;
-            Result = "Si";
+            char = "Si";
             //Result = "希";
         }
 
-        document.getElementById("words").innerHTML = Result;
+        document.getElementById("words").innerHTML = char;
 
-        cpf.SetSpeech("On", "cmn-Hant-TW", "現在你所輸出的音為 ", 1, 1);
-        cpf.SetSpeech("On", "en-US", Result, 1, 1);
+        cpf.SetSpeech("On", "cmn-Hant-TW", "現在你所輸出的音為 " + Result, 1, 1);
 
         tonergb(x);
     }
