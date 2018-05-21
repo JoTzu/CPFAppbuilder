@@ -24,7 +24,7 @@
 
     setup();
 
-    cpf.request(`["grove_setColorRGB", 0, 0, 0, 0]`);
+    cpf.request(`["grove_setColorRGB", 0, 175, 100, 209]`);
 
     btnAI.addEventListener('click', function (event) {
         cpf.initSpeechRecognition("cmn-Hant-TW");
@@ -68,20 +68,12 @@
             char = "Si";
             //Result = "希";
         }
-        else {
-            speech();
-        }
 
         document.getElementById("words").innerHTML = char;
 
-        cpf.SetSpeech("On", "cmn-Hant-TW", "現在你所輸出的音為 " + Result, 1, 1);
+        cpf.SetSpeech("On", "cmn-Hant-TW", "現在你所輸出的音為 " + Result, 0.7, 1);
 
         tonergb(x);
-    }
-
-    function speech() {
-        document.getElementById("words").innerHTML = "查無此音";
-        cpf.SetSpeech("On", "cmn-Hant-TW", "查無此音", 1, 1);
     }
 
     function tonergb(i) {
