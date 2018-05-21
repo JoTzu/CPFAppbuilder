@@ -68,6 +68,11 @@
             char = "Si";
             //Result = "希";
         }
+        else {
+            document.getElementById("words").innerHTML = "查無此音";
+            cpf.SetSpeech("On", "cmn-Hant-TW", "查無此音", 1, 1);
+            continue;
+        }
 
         document.getElementById("words").innerHTML = char;
 
@@ -77,6 +82,7 @@
     }
 
     function tonergb(i) {
+        document.getElementById("words").innerHTML = i;
         switch (i) {
             case 1:     //Do
                 cpf.request(`["grove_setColorRGB", 0, 255, 0, 0]`);
