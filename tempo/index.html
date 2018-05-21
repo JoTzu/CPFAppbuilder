@@ -24,7 +24,7 @@
     setup();
 
     btnAI.addEventListener('click', function (event) {
-        cpf.initSpeechRecognition("cmn-Hant-TW");
+        cpf.initSpeechRecognition("cmn-Hant-TW", "en-US");
         cpf.request(`["grove_setColorRGB", 0, 0, 0, 0]`);
     });
 
