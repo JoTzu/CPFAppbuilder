@@ -47,7 +47,7 @@
     }
     light();
 
-    function fan() {
+    /*function fan() {
         //setTimeout(500); 
         if (cpf) {
             if (turn == true) {
@@ -69,11 +69,11 @@
         }
         setTimeout(fan, 100);
     }
-    fan();
+    fan();*/
 
     function setup() {
         if (cpf) {
-            cpf.setPinMode('["resetPin"],["grove_newChainableLED",7, 8, 1]', '["setPinMode", "digital", 6, "OUTPUT"]');
+            cpf.setPinMode('["resetPin"],["grove_newChainableLED",7, 8, 1]'/*, '["setPinMode", "digital", 6, "OUTPUT"]'*/);
         }
     }
 
