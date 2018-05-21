@@ -20,11 +20,12 @@
 <script>
     var btnAI = document.getElementById("btnAI");
     var x;
+    var char;
 
     setup();
 
     btnAI.addEventListener('click', function (event) {
-        cpf.initSpeechRecognition("cmn-Hant-TW", "en-US");
+        cpf.initSpeechRecognition("cmn-Hant-TW");
         cpf.request(`["grove_setColorRGB", 0, 0, 0, 0]`);
     });
 
@@ -33,34 +34,41 @@
 
         if (Result.includes("一") /*|| Result.includes("Do")*/) {
             x = 1;
-            Result = "Do";
+            char = "Do";
+            Result = "哆";
         }
         else if (Result.includes("二") /*|| Result.includes("Re")*/) {
             x = 2;
-            Result = "Re";
+            char = "Re";
+            Result = "蕊";
         }
         else if (Result.includes("三") /*|| Result.includes("Mi")*/) {
             x = 3;
-            Result = "Mi";
+            char = "Mi";
+            Result = "咪";
         }
         else if (Result.includes("四") /*|| Result.includes("Fa")*/) {
             x = 4;
-            Result = "Fa";
+            char = "Fa";
+            Result = "發";
         }
         else if (Result.includes("五") /*|| Result.includes("So")*/) {
             x = 5;
-            Result = "So";
+            char = "So";
+            Result = "收";
         }
         else if (Result.includes("六") /*|| Result.includes("La")*/) {
             x = 6;
-            Result = "La";
+            char = "La";
+            Result = "拉";
         }
         else if (Result.includes("七") /*|| Result.includes("Si")*/) {
             x = 7;
-            Result = "Si";
+            char = "Si";
+            Result = "希";
         }
 
-        document.getElementById("words").innerHTML = Result;
+        document.getElementById("words").innerHTML = char;
 
         cpf.SetSpeech("On", "cmn-Hant-TW", "現在你所輸出的音為 " + Result, 1, 1);
 
