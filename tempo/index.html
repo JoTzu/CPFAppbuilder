@@ -86,31 +86,31 @@
         switch (i) {
             case 1:     //Do
                 cpf.request(`["grove_setColorRGB", 0, 255, 0, 0]`);
-                cpf.request('["tone_play", 6, 261, 300],["sleep", 300]');
+                // cpf.request('["tone_play", 6, 261, 300],["sleep", 300]');
                 break;
             case 2:     //Re
                 cpf.request(`["grove_setColorRGB", 0, 255, 140, 0]`);
-                cpf.request('["tone_play", 6, 293, 300],["sleep", 300]');
+                // cpf.request('["tone_play", 6, 293, 300],["sleep", 300]');
                 break;
             case 3:     //Mi
                 cpf.request(`["grove_setColorRGB", 0, 255, 255, 0]`);
-                cpf.request('["tone_play", 6, 329, 300],["sleep", 300]');
+                //cpf.request('["tone_play", 6, 329, 300],["sleep", 300]');
                 break;
             case 4:     //Fa
                 cpf.request(`["grove_setColorRGB", 0, 0, 255, 0]`);
-                cpf.request('["tone_play", 6, 349, 300],["sleep", 300]');
+                // cpf.request('["tone_play", 6, 349, 300],["sleep", 300]');
                 break;
             case 5:     //So
                 cpf.request(`["grove_setColorRGB", 0, 0, 0, 255]`);
-                cpf.request('["tone_play", 6, 392, 300],["sleep", 300]');
+                // cpf.request('["tone_play", 6, 392, 300],["sleep", 300]');
                 break;
             case 6:     //La
                 cpf.request(`["grove_setColorRGB", 0, 75, 0, 128]`);
-                cpf.request('["tone_play", 6, 440, 300],["sleep", 300]');
+                //cpf.request('["tone_play", 6, 440, 300],["sleep", 300]');
                 break;
             case 7:     //Si
                 cpf.request(`["grove_setColorRGB", 0, 155, 48, 255]`);
-                cpf.request('["tone_play", 6, 493, 300],["sleep", 300]');
+                //cpf.request('["tone_play", 6, 493, 300],["sleep", 300]');
                 break;
         }
         setTimeout(tonergb, 3000);
