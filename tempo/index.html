@@ -23,15 +23,14 @@
 
     setup();
 
-    cpf.request(`["grove_setColorRGB", 0, 0, 0, 0]`);
-
     btnAI.addEventListener('click', function (event) {
         cpf.initSpeechRecongnition("cmn-Hant-TW");
+        cpf.request(`["grove_setColorRGB", 0, 0, 0, 0]`);
     });
 
-    x = 0;
-
     function GetRecognizeResult(Result, Type) {
+        x = 0;
+
         if (Result.includes("1") || Result.includes("Do")) {
             x = 1;
             Result = "Do";
