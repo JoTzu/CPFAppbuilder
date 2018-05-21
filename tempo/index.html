@@ -69,9 +69,7 @@
             //Result = "希";
         }
         else {
-            document.getElementById("words").innerHTML = "查無此音";
-            cpf.SetSpeech("On", "cmn-Hant-TW", "查無此音", 1, 1);
-            break;
+            speech();
         }
 
         document.getElementById("words").innerHTML = char;
@@ -79,6 +77,11 @@
         cpf.SetSpeech("On", "cmn-Hant-TW", "現在你所輸出的音為 " + Result, 1, 1);
 
         tonergb(x);
+    }
+
+    function speech() {
+        document.getElementById("words").innerHTML = "查無此音";
+        cpf.SetSpeech("On", "cmn-Hant-TW", "查無此音", 1, 1);
     }
 
     function tonergb(i) {
