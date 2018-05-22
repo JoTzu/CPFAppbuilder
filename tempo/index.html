@@ -14,9 +14,6 @@
 
     <button id="btnAI">press</button>
 
-    <!-- <p id="words">none</p> -->
-
-    <!-- <p id="test">test</p> -->
 </body>
 
 <script>
@@ -69,8 +66,7 @@
             cpf.request('["grove_rgblcd_clear"]');
             tonergb(x);
         }
-        //document.getElementById("test").innerHTML = x;
-        //document.getElementById("words").innerHTML = char;
+
         if (x >= 1 && x <= 7) {
             cpf.SetSpeech("On", "cmn-Hant-TW", "現在你所輸出的音為 " + char, 0.7, 1);
             cpf.request('["grove_rgblcd_clear"]');
@@ -133,8 +129,12 @@
     }
 
     function reboot() {
+        if (k == 4) {
+            cpf.request('["grove_rgblcd_clear"]');
+            k = 0;
+        }
         k += 1;
-        cpf.request('["grove_rgblcd_clear"]');
+
         cpf.request(`["grove_setColorRGB", 0, 100, 100, 209]`);
         cpf.request('["grove_rgblcd_set_rgb", 255, 255, 255]');
         //cpf.request('["grove_rgblcd_print", 0, 1, "Wait..."]');
@@ -149,7 +149,6 @@
         }
         else if (k == 4) {
             cpf.request('["grove_rgblcd_print", 0, 1, "Wait..."]');
-            k = 0;
         }
         setTimeout('reboot()', 1000);
     }
