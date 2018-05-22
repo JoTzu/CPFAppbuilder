@@ -64,7 +64,7 @@
         }
 
         if (x >= 1 && x <= 7) {
-            cpf.SetSpeech("On", "cmn-Hant-TW", "現在你所輸出的音為 " + char, 3, 1);
+            cpf.SetSpeech("On", "cmn-Hant-TW", "現在你所輸出的音為 " + char, 1, 1);
         }
 
         cpf.request('["grove_rgblcd_clear"]');
@@ -122,8 +122,7 @@
                 break;
         }
         k = 0;
-        setTimeout('reboot()', 8000);
-    }
+    } setTimeout('reboot()', 5000);
 
     function reboot() {
         if (k == 4 || k == 0) {
