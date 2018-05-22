@@ -131,8 +131,24 @@
         cpf.request('["grove_rgblcd_clear"]');
         cpf.request(`["grove_setColorRGB", 0, 100, 100, 209]`);
         cpf.request('["grove_rgblcd_set_rgb", 255, 255, 255]');
-        cpf.request('["grove_rgblcd_print", 0, 1, "Wait..."]');
-    }
+        //cpf.request('["grove_rgblcd_print", 0, 1, "Wait..."]');
+        if (k == 1) {
+            cpf.request('["grove_rgblcd_print", 0, 1, "Wait"]');
+            k += 1;
+        }
+        else if (k == 2) {
+            cpf.request('["grove_rgblcd_print", 0, 1, "Wait."]');
+            k += 1;
+        }
+        else if (k == 3) {
+            cpf.request('["grove_rgblcd_print", 0, 1, "Wait.."]');
+            k += 1;
+        }
+        else if (k == 4) {
+            cpf.request('["grove_rgblcd_print", 0, 1, "Wait..."]');
+            k = 1;
+        }
+    } setTimeout('reboot()', 1000);
 
     function setup() {
         if (cpf) {
