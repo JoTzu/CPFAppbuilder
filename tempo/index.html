@@ -26,10 +26,7 @@
     var char1;
 
     setup();
-
-    cpf.request(`["grove_setColorRGB", 0, 100, 100, 209]`);
-    cpf.request('["grove_rgblcd_set_rgb", 255, 255, 255]');
-    cpf.request('["grove_rgblcd_print", 0, 1, "Wait..."]');
+    reboot();
 
     btnAI.addEventListener('click', function (event) {
         cpf.initSpeechRecognition("cmn-Hant-TW");
@@ -123,8 +120,13 @@
         }
         cpf.request('["grove_rgblcd_clear"]');
 
-    } setTimeout(x = 0, 3000);
+    } setTimeout(reboot, 5000);
 
+    function reboot() {
+        cpf.request(`["grove_setColorRGB", 0, 100, 100, 209]`);
+        cpf.request('["grove_rgblcd_set_rgb", 255, 255, 255]');
+        cpf.request('["grove_rgblcd_print", 0, 1, "Wait..."]');
+    }
 
     function setup() {
         if (cpf) {
