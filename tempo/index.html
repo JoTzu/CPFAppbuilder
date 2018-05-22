@@ -32,7 +32,7 @@
 
         if (Result.includes("第一個")) {
             x = 1;
-            char = "Do";
+            char = "Dou";
         }
         else if (Result.includes("第二個")) {
             x = 2;
@@ -64,7 +64,7 @@
         }
 
         if (x >= 1 && x <= 7) {
-            cpf.SetSpeech("On", "cmn-Hant-TW", "現在你所輸出的音為 " + char, 0.7, 1);
+            cpf.SetSpeech("On", "cmn-Hant-TW", "現在你所輸出的音為 " + char, 0.1, 1.2);
         }
 
         cpf.request('["grove_rgblcd_clear"]');
