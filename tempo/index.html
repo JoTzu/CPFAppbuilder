@@ -64,7 +64,7 @@
         }
 
         if (x >= 1 && x <= 7) {
-            cpf.SetSpeech("On", "cmn-Hant-TW", /*"現在你所輸出的音為 " +*/ char, 1, 1);
+            cpf.SetSpeech("On", "cmn-Hant-TW", "現在你所輸出的音為 " + char, 0.4, 1);
         }
 
         cpf.request('["grove_rgblcd_clear"]');
@@ -82,38 +82,38 @@
         switch (i) {
             case 1:     //Do
                 cpf.request('["grove_rgblcd_set_rgb", 255, 0, 0]');
-                cpf.request(`["grove_setColorRGB", 0, 255, 0, 0]`);
                 cpf.request('["tone_play", 6, 261, 500]');
+                cpf.request(`["grove_setColorRGB", 0, 255, 0, 0]`);
                 break;
             case 2:     //Re
                 cpf.request('["grove_rgblcd_set_rgb", 255, 140, 0]');
-                cpf.request(`["grove_setColorRGB", 0, 255, 140, 0]`);
                 cpf.request('["tone_play", 6, 293, 500]');
+                cpf.request(`["grove_setColorRGB", 0, 255, 140, 0]`);
                 break;
             case 3:     //Mi
                 cpf.request('["grove_rgblcd_set_rgb", 255, 255, 0]');
-                cpf.request(`["grove_setColorRGB", 0, 255, 255, 0]`);
                 cpf.request('["tone_play", 6, 329, 500]');
+                cpf.request(`["grove_setColorRGB", 0, 255, 255, 0]`);
                 break;
             case 4:     //Fa
                 cpf.request('["grove_rgblcd_set_rgb", 0, 255, 0]');
-                cpf.request(`["grove_setColorRGB", 0, 0, 255, 0]`);
                 cpf.request('["tone_play", 6, 349, 500]');
+                cpf.request(`["grove_setColorRGB", 0, 0, 255, 0]`);
                 break;
             case 5:     //So
                 cpf.request('["grove_rgblcd_set_rgb", 0, 0, 255]');
-                cpf.request(`["grove_setColorRGB", 0, 0, 0, 255]`);
                 cpf.request('["tone_play", 6, 392, 500]');
+                cpf.request(`["grove_setColorRGB", 0, 0, 0, 255]`);
                 break;
             case 6:     //La
                 cpf.request('["grove_rgblcd_set_rgb", 75, 0, 128]');
-                cpf.request(`["grove_setColorRGB", 0, 75, 0, 128]`);
                 cpf.request('["tone_play", 6, 440, 500]');
+                cpf.request(`["grove_setColorRGB", 0, 75, 0, 128]`);
                 break;
             case 7:     //Si
                 cpf.request('["grove_rgblcd_set_rgb", 155, 48, 255]');
-                cpf.request(`["grove_setColorRGB", 0, 155, 48, 255]`);
                 cpf.request('["tone_play", 6, 493, 500]');
+                cpf.request(`["grove_setColorRGB", 0, 155, 48, 255]`);
                 break;
             case 8:     //default
                 cpf.request('["grove_rgblcd_set_rgb", 255, 255, 255]');
@@ -122,7 +122,7 @@
                 break;
         }
         k = 0;
-    } setTimeout('reboot()', 5000);
+    } setTimeout('reboot()', 8000);
 
     function reboot() {
         if (k == 4 || k == 0) {
