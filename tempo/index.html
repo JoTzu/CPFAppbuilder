@@ -121,10 +121,10 @@
                 cpf.request('["grove_rgblcd_set_rgb", 155, 48, 255]');
                 break;
         }
-        setTimeout(tonergb, 3000);
         x = 0;
         cpf.request('["grove_rgblcd_clear"]');
-    }
+
+    } setTimeout(tonergb, 3000);
 
 
     function setup() {
