@@ -1,0 +1,51 @@
+body {
+    margin: 10px 20px;
+    font: normal normal bold 30px comic sans ms;
+    text-decoration: none;
+    text-transform: uppercase
+}
+
+h1 {
+    text-align: center;
+}
+
+#btnAI {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    padding: 12px 15px;
+    border: 1px solid #64070d;
+    border-radius: 8px;
+    background: #130470;
+    background: -webkit-gradient(linear, left top, left bottom, from(#130470), to(#64070d));
+    background: -moz-linear-gradient(top, #130470, #64070d);
+    background: linear-gradient(to bottom, #130470, #64070d);
+    text-shadow: #380407 1px 1px 1px;
+    font: normal normal bold 50px comic sans ms;
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase
+}
+
+/* #btnAI:hover {
+    border: 1px solid ##6f080e;
+    background: #170586;
+    background: -webkit-gradient(linear, left top, left bottom, from(#170586), to(#780810));
+    background: -moz-linear-gradient(top, #170586, #780810);
+    background: linear-gradient(to bottom, #170586, #780810);
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase
+} */
+
+#btnAI:active {
+    background: #0b0243;
+    background: -webkit-gradient(linear, left top, left bottom, from(#0b0243), to(#64070d));
+    background: -moz-linear-gradient(top, #0b0243, #64070d);
+    background: linear-gradient(to bottom, #0b0243, #64070d);
+    text-transform: uppercase
+}
+
+#btnAI:focus {
+    text-transform: uppercase
+}
