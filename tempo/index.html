@@ -23,7 +23,6 @@
     var btnAI = document.getElementById("btnAI");
     var x;
     var char;
-    var char1;
 
     setup();
     reboot();
@@ -36,44 +35,36 @@
         if (Result.includes("第一個")) {
             x = 1;
             char = "Do";
-            //char1 = "哆";
         }
         else if (Result.includes("第二個")) {
             x = 2;
             char = "Re";
-            //char1 = "蕊";
         }
         else if (Result.includes("第三個")) {
             x = 3;
             char = "Mi";
-            //char1 = "咪";
         }
         else if (Result.includes("第四個")) {
             x = 4;
             char = "Fa";
-            //char1 = "發";
         }
         else if (Result.includes("第五個")) {
             x = 5;
             char = "So";
-            //char1 = "收";
         }
         else if (Result.includes("第六個")) {
             x = 6;
             char = "La";
-            //char1 = "拉";
         }
         else if (Result.includes("第七個")) {
             x = 7;
             char = "Si";
-            //char1 = "希";
         }
         //document.getElementById("test").innerHTML = x;
         //document.getElementById("words").innerHTML = char;
 
         cpf.SetSpeech("On", "cmn-Hant-TW", "現在你所輸出的音為 " + char, 0.7, 1);
         cpf.request('["grove_rgblcd_clear"]');
-        //cpf.SetSpeech("On", "en-US", char, 0.7, 1);
 
         tonergb(x);
     }
@@ -118,8 +109,8 @@
                 cpf.request('["grove_rgblcd_set_rgb", 155, 48, 255]');
                 break;
         }
-
-    } setTimeout('reboot()', 5000);
+        setTimeout('reboot()', 5000);
+    }
 
     function reboot() {
         cpf.request('["grove_rgblcd_clear"]');
