@@ -24,7 +24,8 @@ h1 {
     font: normal normal bold 50px comic sans ms;
     color: #ffffff;
     text-decoration: none;
-    text-transform: uppercase
+    text-transform: uppercase;
+    margin: 0 auto;
 }
 
 /* #btnAI:hover {
