@@ -1,0 +1,19 @@
+html {
+    font-family: Microsoft JhengHei;
+}
+
+#title {
+    height: 20%;
+    width: 50%;
+    font-size: 40px;
+    margin: 50px auto 50px;
+}
+
+.colorBtn {
+    height: 100px;
+    width: 100px;
+    padding: 0px;
+    box-sizing: content-box;
+    margin: 15px;
+    font-size: 40px;
+}
