@@ -73,7 +73,8 @@
     function tonergb(i) {
         switch (i) {
             case 1:     //Do
-                cpf.request(`["grove_setColorRGB", 0, 255, 0, 0]`, '["tone_play", 6, 261, 300],["sleep", 300]');
+                cpf.request(`["grove_setColorRGB", 0, 255, 0, 0]`);
+                cpf.request('["tone_play", 6, 261, 300],["sleep", 300]');
                 break;
             case 2:     //Re
                 cpf.request(`["grove_setColorRGB", 0, 255, 140, 0]`);
