@@ -24,37 +24,37 @@
     reboot();
 
     btnAI.addEventListener('click', function (event) {
-        cpf.initSpeechRecognition("en-US");
+        cpf.initSpeechRecognition("cmn-Hant-TW");
     });
 
     function GetRecognizeResult(Result, Type) {
         x = 0;
 
-        if (Result.includes("one")) {
+        if (Result.includes("第一個")) {
             x = 1;
             char = "Do";
         }
-        else if (Result.includes("two")) {
+        else if (Result.includes("第二個")) {
             x = 2;
             char = "Re";
         }
-        else if (Result.includes("three")) {
+        else if (Result.includes("第三個")) {
             x = 3;
             char = "Mi";
         }
-        else if (Result.includes("four")) {
+        else if (Result.includes("第四個")) {
             x = 4;
             char = "Fa";
         }
-        else if (Result.includes("five")) {
+        else if (Result.includes("第五個")) {
             x = 5;
             char = "So";
         }
-        else if (Result.includes("six")) {
+        else if (Result.includes("第六個")) {
             x = 6;
             char = "La";
         }
-        else if (Result.includes("seven")) {
+        else if (Result.includes("第七個")) {
             x = 7;
             char = "Si";
         }
@@ -127,8 +127,8 @@
 
     function reboot() {
         if (k == 4) {
-            cpf.request('["grove_rgblcd_clear"]');
             k = 0;
+            cpf.request('["grove_rgblcd_clear"]');
         }
         k += 1;
 
