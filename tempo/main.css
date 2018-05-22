@@ -21,13 +21,13 @@ h1 {
     background: -moz-linear-gradient(top, #130470, #64070d);
     background: linear-gradient(to bottom, #130470, #64070d);
     text-shadow: #380407 1px 1px 1px;
-    font: normal normal bold 50px comic sans ms;
+    font: normal normal bold 50px;
     color: #ffffff;
     text-decoration: none;
     text-transform: uppercase;
-    margin: 0 auto;
+    font-family: 'Yatra One', cursive;
 }
-
+ /*comic sans ms*/
 /* #btnAI:hover {
     border: 1px solid ##6f080e;
     background: #170586;
