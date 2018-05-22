@@ -15,7 +15,7 @@
 
     <p id="words">none</p>
 
-    <p id="test">test</p>
+    <!-- <p id="test">test</p> -->
 </body>
 
 
@@ -24,11 +24,12 @@
     var x;
     var char;
 
-    //setup();
+    setup();
+
+    cpf.request(`["grove_setColorRGB", 0, 0, 100, 209]`);
 
     btnAI.addEventListener('click', function (event) {
         cpf.initSpeechRecognition("cmn-Hant-TW");
-        cpf.request(`["grove_setColorRGB", 0, 175, 100, 209]`);
     });
 
     function GetRecognizeResult(Result, Type) {
@@ -69,10 +70,10 @@
             char = "Si";
             //Result = "希";
         }
-        document.getElementById("test").innerHTML = x;
+        //document.getElementById("test").innerHTML = x;
         document.getElementById("words").innerHTML = char;
 
-        cpf.SetSpeech("On", "cmn-Hant-TW", "現在你所輸出的音為 " + Result, 0.7, 1);
+        cpf.SetSpeech("On", "cmn-Hant-TW", "現在你所輸出的音為 " + char, 0.7, 1);
 
         tonergb(x);
     }
@@ -80,8 +81,7 @@
     function tonergb(i) {
         switch (i) {
             case 1:     //Do
-                cpf.request(`["grove_setColorRGB", 0, 255, 0, 0]`);
-                cpf.request('["tone_play", 6, 261, 300],["sleep", 300]');
+                cpf.request(`["grove_setColorRGB", 0, 255, 0, 0]`, '["tone_play", 6, 261, 300],["sleep", 300]');
                 break;
             case 2:     //Re
                 cpf.request(`["grove_setColorRGB", 0, 255, 140, 0]`);
