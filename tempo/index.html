@@ -23,6 +23,7 @@
     var btnAI = document.getElementById("btnAI");
     var x;
     var char;
+    var char1;
 
     setup();
 
@@ -38,42 +39,42 @@
         if (Result.includes("第一個") /*|| Result.includes("Do")*/) {
             x = 1;
             char = "Do";
-            Result = "哆";
+            char1 = "哆";
         }
         else if (Result.includes("第二個") /*|| Result.includes("Re")*/) {
             x = 2;
             char = "Re";
-            Result = "蕊";
+            char1 = "蕊";
         }
         else if (Result.includes("第三個") /*|| Result.includes("Mi")*/) {
             x = 3;
             char = "Mi";
-            Result = "咪";
+            char1 = "咪";
         }
         else if (Result.includes("第四個") /*|| Result.includes("Fa")*/) {
             x = 4;
             char = "Fa";
-            Result = "發";
+            char1 = "發";
         }
         else if (Result.includes("第五個") /*|| Result.includes("So")*/) {
             x = 5;
             char = "So";
-            Result = "收";
+            char1 = "收";
         }
         else if (Result.includes("第六個") /*|| Result.includes("La")*/) {
             x = 6;
             char = "La";
-            Result = "拉";
+            char1 = "拉";
         }
         else if (Result.includes("第七個") /*|| Result.includes("Si")*/) {
             x = 7;
             char = "Si";
-            Result = "希";
+            char1 = "希";
         }
         //document.getElementById("test").innerHTML = x;
         document.getElementById("words").innerHTML = char;
 
-        cpf.SetSpeech("On", "cmn-Hant-TW", "現在你所輸出的音為" + char, 0.7, 1);
+        cpf.SetSpeech("On", "cmn-Hant-TW", "現在你所輸出的音為" + char1, 0.7, 1);
         //cpf.SetSpeech("On", "en-US", char, 0.7, 1);
 
         tonergb(x);
