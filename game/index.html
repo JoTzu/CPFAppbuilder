@@ -15,7 +15,6 @@
 
     <p id="words">none</p>
 
-    <!-- <p id="test">test</p> -->
 </body>
 
 
@@ -35,42 +34,35 @@
     function GetRecognizeResult(Result, Type) {
         x = 0;
 
-        if (Result.includes("第一個") /*|| Result.includes("Do")*/) {
+        if (Result.includes("第一個")) {
             x = 1;
             char = "Do";
-            //Result = "哆";
         }
-        else if (Result.includes("第二個") /*|| Result.includes("Re")*/) {
+        else if (Result.includes("第二個")) {
             x = 2;
             char = "Re";
-            // Result = "蕊";
         }
-        else if (Result.includes("第三個") /*|| Result.includes("Mi")*/) {
+        else if (Result.includes("第三個")) {
             x = 3;
             char = "Mi";
-            //Result = "咪";
         }
-        else if (Result.includes("第四個") /*|| Result.includes("Fa")*/) {
+        else if (Result.includes("第四個")) {
             x = 4;
             char = "Fa";
-            //Result = "發";
         }
-        else if (Result.includes("第五個") /*|| Result.includes("So")*/) {
+        else if (Result.includes("第五個")) {
             x = 5;
             char = "So";
-            //Result = "收";
         }
-        else if (Result.includes("第六個") /*|| Result.includes("La")*/) {
+        else if (Result.includes("第六個")) {
             x = 6;
             char = "La";
-            //Result = "拉";
         }
-        else if (Result.includes("第七個") /*|| Result.includes("Si")*/) {
+        else if (Result.includes("第七個")) {
             x = 7;
             char = "Si";
-            //Result = "希";
         }
-        //document.getElementById("test").innerHTML = x;
+
         document.getElementById("words").innerHTML = char;
 
         cpf.SetSpeech("On", "cmn-Hant-TW", "現在你所輸出的音為 " + char, 0.7, 1);
