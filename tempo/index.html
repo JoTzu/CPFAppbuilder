@@ -67,11 +67,12 @@
         }
         //document.getElementById("test").innerHTML = x;
         //document.getElementById("words").innerHTML = char;
+        if (x >= 1 && x <= 7) {
+            cpf.SetSpeech("On", "cmn-Hant-TW", "現在你所輸出的音為 " + char, 0.7, 1);
+            cpf.request('["grove_rgblcd_clear"]');
 
-        cpf.SetSpeech("On", "cmn-Hant-TW", "現在你所輸出的音為 " + char, 0.7, 1);
-        cpf.request('["grove_rgblcd_clear"]');
-
-        tonergb(x);
+            tonergb(x);
+        }
     }
 
     function tonergb(i) {
@@ -117,16 +118,11 @@
                 break;
             case 8:
                 cpf.request(`["grove_setColorRGB", 0, 0, 0, 0]`);
-
-                var i = 1;
-                for (i = 1; i <= 3; i++) {
-                    cpf.request('["tone_play", 6, 493, 300],["sleep", 300]');
-                }
-
+                cpf.request('["tone_play", 6, 493, 500],["sleep", 300],["tone_play", 6, 493, 500],["sleep", 300],["tone_play", 6, 493, 500]');
                 cpf.request('["grove_rgblcd_set_rgb", 255, 255, 255]');
                 cpf.request('["grove_rgblcd_print", 0, 1,"ERROR"]');
         }
-        setTimeout('reboot()', 5000);
+        setTimeout('reboot()', 3000);
     }
 
     function reboot() {
