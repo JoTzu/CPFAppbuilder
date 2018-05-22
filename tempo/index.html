@@ -11,9 +11,7 @@
 
 <body>
     <h1>Tempo</h1>
-
     <button id="btnAI">press</button>
-
 </body>
 
 <script>
@@ -26,53 +24,51 @@
     reboot();
 
     btnAI.addEventListener('click', function (event) {
-        cpf.initSpeechRecognition("cmn-Hant-TW");
+        cpf.initSpeechRecognition("en-US");
     });
 
     function GetRecognizeResult(Result, Type) {
         x = 0;
 
-        if (Result.includes("第一個")) {
+        if (Result.includes("one")) {
             x = 1;
             char = "Do";
         }
-        else if (Result.includes("第二個")) {
+        else if (Result.includes("two")) {
             x = 2;
             char = "Re";
         }
-        else if (Result.includes("第三個")) {
+        else if (Result.includes("three")) {
             x = 3;
             char = "Mi";
         }
-        else if (Result.includes("第四個")) {
+        else if (Result.includes("four")) {
             x = 4;
             char = "Fa";
         }
-        else if (Result.includes("第五個")) {
+        else if (Result.includes("five")) {
             x = 5;
             char = "So";
         }
-        else if (Result.includes("第六個")) {
+        else if (Result.includes("six")) {
             x = 6;
             char = "La";
         }
-        else if (Result.includes("第七個")) {
+        else if (Result.includes("seven")) {
             x = 7;
             char = "Si";
         }
         else {
             x = 8;
             cpf.SetSpeech("On", "cmn-Hant-TW", "錯誤錯誤錯誤", 0.7, 3);
-            cpf.request('["grove_rgblcd_clear"]');
-            tonergb(x);
         }
 
         if (x >= 1 && x <= 7) {
             cpf.SetSpeech("On", "cmn-Hant-TW", "現在你所輸出的音為 " + char, 0.7, 1);
-            cpf.request('["grove_rgblcd_clear"]');
-
-            tonergb(x);
         }
+
+        cpf.request('["grove_rgblcd_clear"]');
+        tonergb(x);
     }
 
     function tonergb(i) {
@@ -119,13 +115,14 @@
                 cpf.request('["tone_play", 6, 493, 300],["sleep", 300]');
                 cpf.request('["grove_rgblcd_set_rgb", 155, 48, 255]');
                 break;
-            case 8:
+            case 8:     //default
                 cpf.request(`["grove_setColorRGB", 0, 0, 0, 0]`);
                 cpf.request('["tone_play", 6, 493, 500],["sleep", 300],["tone_play", 6, 493, 500],["sleep", 300],["tone_play", 6, 493, 500]');
                 cpf.request('["grove_rgblcd_set_rgb", 255, 255, 255]');
+                break;
         }
         k = 0;
-        setTimeout('reboot()', 3000);
+        setTimeout('reboot()', 5000);
     }
 
     function reboot() {
@@ -137,7 +134,7 @@
 
         cpf.request(`["grove_setColorRGB", 0, 100, 100, 209]`);
         cpf.request('["grove_rgblcd_set_rgb", 255, 255, 255]');
-        //cpf.request('["grove_rgblcd_print", 0, 1, "Wait..."]');
+
         if (k == 1) {
             cpf.request('["grove_rgblcd_print", 0, 1, "Wait"]');
         }
