@@ -28,7 +28,7 @@
     setup();
 
     cpf.request(`["grove_setColorRGB", 0, 100, 100, 209]`);
-    cpf.request('["grove_rgblcd_set_rgb", 0, 255, 255]');
+    cpf.request('["grove_rgblcd_set_rgb", 255, 255, 255]');
     cpf.request('["grove_rgblcd_print", 0, 1, "Wait..."]');
 
     btnAI.addEventListener('click', function (event) {
@@ -37,6 +37,9 @@
 
     function GetRecognizeResult(Result, Type) {
         x = 0;
+        char = "";
+        cpf.request('["grove_rgblcd_set_rgb", 255, 255, 255]');
+        cpf.request('["grove_rgblcd_print", 0, 1, "Wait..."]');
 
         if (Result.includes("第一個") /*|| Result.includes("Do")*/) {
             x = 1;
@@ -76,6 +79,9 @@
         //document.getElementById("test").innerHTML = x;
         document.getElementById("words").innerHTML = char;
 
+        cpf.request('["grove_rgblcd_clear"]');
+        cpf.request('["grove_rgblcd_print", 0, 1,' + char + ']');
+
         cpf.SetSpeech("On", "cmn-Hant-TW", "現在你所輸出的音為" + char, 0.7, 1);
         //cpf.SetSpeech("On", "en-US", char, 0.7, 1);
 
@@ -87,36 +93,42 @@
             case 1:     //Do
                 cpf.request(`["grove_setColorRGB", 0, 255, 0, 0]`);
                 cpf.request('["tone_play", 6, 261, 300],["sleep", 300]');
+                cpf.request('["grove_rgblcd_set_rgb", 255, 0, 0]');
                 break;
             case 2:     //Re
                 cpf.request(`["grove_setColorRGB", 0, 255, 140, 0]`);
                 cpf.request('["tone_play", 6, 293, 300],["sleep", 300]');
+                cpf.request('["grove_rgblcd_set_rgb", 255, 140, 0]');
                 break;
             case 3:     //Mi
                 cpf.request(`["grove_setColorRGB", 0, 255, 255, 0]`);
                 cpf.request('["tone_play", 6, 329, 300],["sleep", 300]');
+                cpf.request('["grove_rgblcd_set_rgb", 255, 255, 0]');
                 break;
             case 4:     //Fa
                 cpf.request(`["grove_setColorRGB", 0, 0, 255, 0]`);
                 cpf.request('["tone_play", 6, 349, 300],["sleep", 300]');
+                cpf.request('["grove_rgblcd_set_rgb", 0, 255, 0]');
                 break;
             case 5:     //So
                 cpf.request(`["grove_setColorRGB", 0, 0, 0, 255]`);
                 cpf.request('["tone_play", 6, 392, 300],["sleep", 300]');
+                cpf.request('["grove_rgblcd_set_rgb", 0, 0, 255]');
                 break;
             case 6:     //La
                 cpf.request(`["grove_setColorRGB", 0, 75, 0, 128]`);
                 cpf.request('["tone_play", 6, 440, 300],["sleep", 300]');
+                cpf.request('["grove_rgblcd_set_rgb", 75, 0, 128]');
                 break;
             case 7:     //Si
                 cpf.request(`["grove_setColorRGB", 0, 155, 48, 255]`);
                 cpf.request('["tone_play", 6, 493, 300],["sleep", 300]');
+                cpf.request('["grove_rgblcd_set_rgb", 155, 48, 255]');
                 break;
         }
         setTimeout(tonergb, 3000);
-        x = 0;
-        char = "none";
     }
+
 
     function setup() {
         if (cpf) {
