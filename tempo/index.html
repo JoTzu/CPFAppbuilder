@@ -125,6 +125,7 @@
     }
 
     function reboot() {
+        x = 0;
         cpf.request('["grove_rgblcd_clear"]');
         cpf.request(`["grove_setColorRGB", 0, 100, 100, 209]`);
         cpf.request('["grove_rgblcd_set_rgb", 255, 255, 255]');
