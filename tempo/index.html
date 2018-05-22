@@ -117,7 +117,12 @@
                 break;
             case 8:
                 cpf.request(`["grove_setColorRGB", 0, 0, 0, 0]`);
-                cpf.request('["tone_play", 6, 493, 300],["sleep", 300], ["tone_play", 6, 493, 300],["sleep", 300],["tone_play", 6, 493, 300]');
+
+                var i = 1;
+                for (i = 1; i <= 3; i++) {
+                    cpf.request('["tone_play", 6, 493, 300],["sleep", 300]');
+                }
+
                 cpf.request('["grove_rgblcd_set_rgb", 255, 255, 255]');
                 cpf.request('["grove_rgblcd_print", 0, 1,"ERROR"]');
         }
