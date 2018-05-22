@@ -23,6 +23,7 @@
     var btnAI = document.getElementById("btnAI");
     var x;
     var char;
+    var k;
 
     setup();
     reboot();
@@ -130,9 +131,10 @@
         setTimeout('reboot()', 3000);
     }
 
-    var k = 1;
+
 
     function reboot() {
+        k = 1;
         cpf.request('["grove_rgblcd_clear"]');
         cpf.request(`["grove_setColorRGB", 0, 100, 100, 209]`);
         cpf.request('["grove_rgblcd_set_rgb", 255, 255, 255]');
@@ -153,7 +155,8 @@
             cpf.request('["grove_rgblcd_print", 0, 1, "Wait..."]');
             k = 1;
         }
-    } setTimeout('reboot()', 1000);
+        setTimeout('reboot()', 1000);
+    }
 
     function setup() {
         if (cpf) {
