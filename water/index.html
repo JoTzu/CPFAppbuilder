@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <p>testXX</p>
+    <p>test</p>
 </body>
 
 <script>
@@ -28,19 +28,21 @@
     }*/
 
     function loop() {
-        if (water == 0) {
-            cpf.request('["grove_rgblcd_print", 0, 1,"test" ]');
-            cpf.request(`["grove_setColorRGB", 0, 0, 0, 255]`);
-        }
-        else {
-            cpf.request('["grove_rgblcd_clear"]');
-            cpf.request(`["grove_setColorRGB", 0, 0, 255, 0]`);
-        }
-        console.log(water);
+        if (cpf) {
+            if (water == 0) {
+                cpf.request('["grove_rgblcd_print", 0, 1,"test" ]');
+                cpf.request(`["grove_setColorRGB", 0, 0, 0, 255]`);
+            }
+            else {
+                cpf.request('["grove_rgblcd_clear"]');
+                cpf.request(`["grove_setColorRGB", 0, 0, 255, 0]`);
+            }
+            console.log(water);
 
-        water = cpf.get("d6");
+            water = cpf.get("d6");
 
-    } setTimeout(loop, 1000);
+        } setTimeout(loop, 1000);
+    }
 
     loop();
 
