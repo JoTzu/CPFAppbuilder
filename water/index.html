@@ -14,6 +14,7 @@
 
 <script>
     //var btnAI = document.getElementById("btnAI");
+    var water = cpf.get("d6");
 
     setup();
     loop();
@@ -27,14 +28,16 @@
     }*/
 
     function loop() {
-        var water = cpf.get("d6");
-
-        cpf.request('["grove_rgblcd_print", 0, 1,"" ]');
+        cpf.request('["grove_rgblcd_clear"]');
         cpf.request(`["grove_setColorRGB", 0, 255, 0, 0]`);
 
-        if (water) {
+        if (water == 0) {
             cpf.request('["grove_rgblcd_print", 0, 1,"test" ]');
-            cpf.request(`["grove_setColorRGB", 0, 120, 200, 200]`);
+            cpf.request(`["grove_setColorRGB", 0, 0, 0, 255]`);
+        }
+        else {
+            cpf.request('["grove_rgblcd_clear"]');
+            cpf.request(`["grove_setColorRGB", 0, 0, 255, 0]`);
         }
     } setTimeout('loop()', 1000);
 
