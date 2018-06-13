@@ -26,10 +26,12 @@
     }*/
 
     function loop() {
-        cpf.get("d6");
-        cpf.request('["grove_rgblcd_print", 0, 1,"test" ]');
-        cpf.request(`["grove_setColorRGB", 0, 120, 200, 200]`);
+        var water = cpf.get("d6");
 
+        if (water) {
+            cpf.request('["grove_rgblcd_print", 0, 1,"test" ]');
+            cpf.request(`["grove_setColorRGB", 0, 120, 200, 200]`);
+        }
     }
 
 
