@@ -17,7 +17,7 @@
     var water = cpf.get("d6");
 
     setup();
-    loop();
+
 
     /*btnAI.addEventListener('click', function (event) {
         cpf.initSpeechRecognition("cmn-Hant-TW");
@@ -36,8 +36,9 @@
             cpf.request('["grove_rgblcd_clear"]');
             cpf.request(`["grove_setColorRGB", 0, 0, 255, 0]`);
         }
-    } setTimeout('loop()', 1000);
+    } setTimeout(loop, 1000);
 
+    loop();
 
 
     function setup() {
