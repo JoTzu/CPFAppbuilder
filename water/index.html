@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <p>testXX</p>
+    <p>test</p>
 </body>
 
 <script>
@@ -36,7 +36,7 @@
             cpf.request('["grove_rgblcd_clear"]');
             cpf.request(`["grove_setColorRGB", 0, 0, 255, 0]`);
         }
-    } setTimeout(loop, 1000);
+    } setTimeout('loop()', 1000);
 
     loop();
 
