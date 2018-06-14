@@ -9,25 +9,15 @@
 </head>
 
 <body>
-    <p>testXX</p>
+    <p>testX</p>
 </body>
 
 <script>
-    //var btnAI = document.getElementById("btnAI");
     var water;
     var time = 0;
     var x = 0;
 
     setup();
-
-
-    /*btnAI.addEventListener('click', function (event) {
-        cpf.initSpeechRecognition("cmn-Hant-TW");
-    });
-
-    function GetRecognizeResult(Result, Type) {
-
-    }*/
 
     cpf.request('["grove_rgblcd_clear"]');
 
@@ -35,7 +25,7 @@
         water = cpf.get("d6");
 
         if (cpf) {
-            if (water == 0 && time > 10) {
+            if (water == 0 && time > 5) {
                 if (x != 1) {
                     cpf.request('["grove_rgblcd_clear"]');
                 }
@@ -44,12 +34,12 @@
                 cpf.request('["grove_rgblcd_print", 4, 1,"NO ENTRY."]');
                 cpf.request('["grove_rgblcd_set_rgb", 255, 160, 122]');
                 cpf.request('["grove_setColorRGB", 0, 255, 0, 0]');
-                if ((time - 10) % 3 == 1) {
+                if ((time - 5) % 3 == 1) {
                     cpf.SetSpeech("On", "cmn-Hant-TW", "現在地下道無法通行請駕駛改道", 0.4, 1);
                 }
                 x = 1;
             }
-            else if (water == 0 && time <= 10) {
+            else if (water == 0 && time <= 5) {
                 if (x != 2) {
                     cpf.request('["grove_rgblcd_clear"]');
                 }
