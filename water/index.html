@@ -33,25 +33,33 @@
     function loop() {
         if (cpf) {
             if (water == 0 && time > 10) {
-                cpf.request('["grove_rgblcd_clear"]');
-                cpf.request('["grove_rgblcd_print", 0, 1,"Danger" ]');
+                //cpf.request('["grove_rgblcd_print", 0, 1,"Danger" ]');
+                cpf.request('["grove_rgblcd_print", 0, 0,"Underground has been closed because of flooding." ]');
+                cpf.request('["grove_rgblcd_print", 0, 1,"NO ENTRY." ]');
+                cpf.request('["grove_rgblcd_set_rgb", 255, 0, 0]');
                 cpf.request(`["grove_setColorRGB", 0, 255, 0, 0]`);
             }
             else if (water == 0 && time <= 10) {
-                cpf.request('["grove_rgblcd_clear"]');
-                cpf.request('["grove_rgblcd_print", 0, 1,"Caveat" ]');
+                //cpf.request('["grove_rgblcd_print", 0, 1,"Caveat" ]');
+                cpf.request('["grove_rgblcd_print", 0, 0,"Underground is flooding." ]');
+                cpf.request('["grove_rgblcd_print", 0, 1,"Please drive carefully." ]');
+                cpf.request('["grove_rgblcd_set_rgb", 255, 255, 0]');
                 cpf.request(`["grove_setColorRGB", 0, 255, 255, 0]`);
                 time += 1;
             }
             else if (water == 1) {
-                cpf.request('["grove_rgblcd_clear"]');
-                cpf.request('["grove_rgblcd_print", 0, 1,"Safe" ]');
+                //cpf.request('["grove_rgblcd_print", 0, 1,"Safe" ]');
+                cpf.request('["grove_rgblcd_print", 0, 0,"The road is clear of traffic." ]');
+                cpf.request('["grove_rgblcd_print", 0, 1,"Please drive carefully." ]');
+                cpf.request('["grove_rgblcd_set_rgb", 0, 255, 0]');
                 cpf.request(`["grove_setColorRGB", 0, 0, 255, 0]`);
                 time = 0;
             }
             console.log(water);
 
             water = cpf.get("d6");
+
+            cpf.request('["grove_rgblcd_clear"]');
 
         } setTimeout(loop, 1000);
     }
