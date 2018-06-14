@@ -11,6 +11,7 @@ function loop() {
 
     if (cpf) {
         if (water == 0 && time > 5) {
+            console.log(time);
             if (x != 1) {
                 cpf.request('["grove_rgblcd_clear"]');
             }
@@ -19,9 +20,8 @@ function loop() {
             cpf.request('["grove_rgblcd_print", 4, 1,"NO ENTRY."]');
             cpf.request('["grove_rgblcd_set_rgb", 255, 160, 122]');
             cpf.request('["grove_setColorRGB", 0, 255, 0, 0]');
-            if ((time - 5) % 3 == 1) {
-                cpf.SetSpeech("On", "cmn-Hant-TW", "現在地下道無法通行", 0.4, 1);
-                cpf.SetSpeech("On", "cmn-Hant-TW", "請駕駛改道", 0.4, 0.7);
+            if (((time - 5) % 3) == 1) {
+                cpf.SetSpeech("On", "cmn-Hant-TW", "現在地下道無法通行請駕駛改道", 0.4, 0.7);
                 time += 1;
             }
             x = 1;
