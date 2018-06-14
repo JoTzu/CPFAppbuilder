@@ -22,8 +22,8 @@ function loop() {
             cpf.request('["grove_setColorRGB", 0, 255, 0, 0]');
             if (((time - 5) % 3) == 1) {
                 cpf.SetSpeech("On", "cmn-Hant-TW", "現在地下道無法通行請駕駛改道", 0.4, 0.7);
-                time += 1;
             }
+            time += 1;
             x = 1;
         }
         else if (water == 0 && time <= 5) {
