@@ -1,0 +1,57 @@
+.container{
+	background-color: rgb(109,243,176);
+	font-family: Microsoft JhengHei;
+	height: 500px;
+}
+
+.title{
+	color: white;
+	font-size: 60px;
+}
+
+#analog {
+	height: 300px;
+	float: left;
+	padding: 0 4em;
+}
+
+.analogsensor {
+	height: 80px;
+	width: auto;
+	margin-top: 20px;
+	margin-left: 20px;
+}
+
+.analogclass {
+	display: block;
+	border: 3px solid white;
+	border-radius: 5px;
+	height: 120px;
+    margin: 10px auto;
+    
+}
+
+.analogvalue {
+	font-size: 26px;
+	float: right;
+	margin-top: 44px;
+	margin-right: 40px;
+	color: white;
+}
+
+.speechsensor{
+    height: 80px;
+	width: auto;
+}
+
+.speech{
+    background-color: white;   
+	color:  black;
+	font-size: 26px;
+	/* border:1px solid black; */
+    width: 120px;
+    height: 50px; 
+    float: right;
+    margin-top: 30px;
+    margin-right: 40px;
+}
