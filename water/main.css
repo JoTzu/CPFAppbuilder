@@ -19,11 +19,24 @@ body {
 }
 
 .rain {
+	margin: 5%;
+}
 
+.county_township {
+	margin-top: 3%;
+	margin-bottom: 1%;
+}
+
+.textbig {
+	font-size: 180%;
 }
 
 .text {
 	font-size: 150%;
+}
+
+.textsmall {
+	font-size: 120%;
 }
 
 /*#analog {
