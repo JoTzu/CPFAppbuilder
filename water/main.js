@@ -15,6 +15,7 @@ function loop() {
             if (x != 1) {
                 cpf.request('["grove_rgblcd_clear"]');
                 document.getElementById("lightValue").innerHTML = "警戒";
+                document.getElementById("word").innerHTML = "現在地下道積水嚴重，無法行駛，請改道";
             }
             cpf.request('["grove_rgblcd_print", 2, 0,"Underground"]');
             cpf.request('["grove_rgblcd_print", 4, 1,"NO ENTRY."]');
@@ -30,6 +31,7 @@ function loop() {
             if (x != 2) {
                 cpf.request('["grove_rgblcd_clear"]');
                 document.getElementById("lightValue").innerHTML = "注意";
+                document.getElementById("word").innerHTML = "現在地下道有些許積水，請小心慢行";
             }
             cpf.request('["grove_rgblcd_print", 2, 0,"Underground"]');
             cpf.request('["grove_rgblcd_print", 0, 1,"Drive carefully."]');
@@ -42,6 +44,7 @@ function loop() {
             if (x != 3) {
                 cpf.request('["grove_rgblcd_clear"]');
                 document.getElementById("lightValue").innerHTML = "安全";
+                document.getElementById("word").innerHTML = "現在地下道無積水，可安心行駛";
             }
             cpf.request('["grove_rgblcd_print", 2, 0,"Underground"]');
             cpf.request('["grove_rgblcd_print", 2, 1,"Road safely."]');

@@ -1,7 +1,8 @@
 body {
 	width: 100%;
 	height: 100%;
-    margin: 0 auto;
+	margin: 0 auto;
+	overflow: hidden;
 }
 
 .container {
@@ -18,13 +19,30 @@ body {
 	font-family: 'Noto Sans TC', sans-serif;
 }
 
-.rain {
-	margin: 5%;
+.block {
+	margin: 8% 2%;
+	padding: 1%;
+	border: 3px solid white;
+	border-radius: 10px;
+}
+
+.analogsensor {
+	width: auto;
+	height: 80px;
+	margin-top: 20px;
+	margin-left: 20px;
+}
+
+.analogvalue {
+	color: white;
+	margin-top: 44px;
+	margin-right: 40px;
+	float: right;
 }
 
 .county_township {
 	margin-top: 3%;
-	margin-bottom: 1%;
+	margin-bottom: 3%;
 }
 
 .textbig {
