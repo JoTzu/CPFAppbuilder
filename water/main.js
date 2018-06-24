@@ -14,8 +14,8 @@ function loop() {
             console.log(time);
             if (x != 1) {
                 cpf.request('["grove_rgblcd_clear"]');
+                document.getElementById("lightValue").innerHTML = "警戒";
             }
-            //cpf.request('["grove_rgblcd_print", 0, 1,"Danger" ]');
             cpf.request('["grove_rgblcd_print", 2, 0,"Underground"]');
             cpf.request('["grove_rgblcd_print", 4, 1,"NO ENTRY."]');
             cpf.request('["grove_rgblcd_set_rgb", 255, 160, 122]');
@@ -29,8 +29,8 @@ function loop() {
         else if (water == 0 && time <= 5) {
             if (x != 2) {
                 cpf.request('["grove_rgblcd_clear"]');
+                document.getElementById("lightValue").innerHTML = "注意";
             }
-            //cpf.request('["grove_rgblcd_print", 0, 1,"Caveat" ]');
             cpf.request('["grove_rgblcd_print", 2, 0,"Underground"]');
             cpf.request('["grove_rgblcd_print", 0, 1,"Drive carefully."]');
             cpf.request('["grove_rgblcd_set_rgb", 238, 238, 0]');
@@ -41,8 +41,8 @@ function loop() {
         else if (water == 1) {
             if (x != 3) {
                 cpf.request('["grove_rgblcd_clear"]');
+                document.getElementById("lightValue").innerHTML = "安全";
             }
-            //cpf.request('["grove_rgblcd_print", 0, 1,"Safe" ]');
             cpf.request('["grove_rgblcd_print", 2, 0,"Underground"]');
             cpf.request('["grove_rgblcd_print", 2, 1,"Road safely."]');
             cpf.request('["grove_rgblcd_set_rgb", 124, 252, 0]');
