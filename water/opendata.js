@@ -1,4 +1,4 @@
-var data_url = 'https://opendata.epa.gov.tw/ws/Data/RainTenMin/?$format=json&callback=?';  //// 加上 &callback=? 是 JSONP 格式
+var data_url = 'https://opendata.epa.gov.tw/ws/Data/RainTenMin/?$format=json&callback=?';  // 加上 &callback=? 是 JSONP 格式
 var rain;
 
 $.ajax({
