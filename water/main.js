@@ -27,7 +27,9 @@ function loop() {
             cpf.request('["grove_rgblcd_set_rgb", 255, 160, 122]');
             cpf.request('["grove_setColorRGB", 0, 255, 0, 0]');
 
-            ui.set("d4", relay);   //  繼電器模組
+            console.log('Before Relay');
+            cpf.set('d4', relay);   //  繼電器模組
+            console.log('After Relay');
 
             // cpf.set('d4',d4);
             // cpf.repeat(relay);
