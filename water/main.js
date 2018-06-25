@@ -53,7 +53,7 @@ function loop() {
         else if (water == 1) {
             if (x != 3) {
                 cpf.request('["grove_rgblcd_clear"]');
-                //document.getElementById("lightValue").innerHTML = value3;
+                document.getElementById("lightValue").innerHTML = value3;
                 //document.getElementById("word").innerHTML = word3;
             }
             cpf.request('["grove_rgblcd_print", 2, 0,"Underground"]');
