@@ -12,6 +12,8 @@ function loop() {
     water = cpf.get("d6");   //  WaterSensor
     relay = cpf.get("d4");   //  取得繼電器模組pin
 
+    console.log(relay);
+
     if (cpf) {
         if (water == 0 && time > 5) {  //  紅燈   WaterSensor == 0 有水
             console.log(time);
@@ -20,13 +22,13 @@ function loop() {
                 cpf.request('["grove_rgblcd_clear"]');
             }
 
-            cpf.set('d4', relay);   //  繼電器模組
-            console.log('After Relay');
+            //cpf.set('d4', relay);   //  繼電器模組
+            //console.log('After Relay');
 
-            relay = 'high';
+            /*relay = 'high';
             console.log('Relay = high');
             cpf.setPinMode('["setPinMode","digital",4,"OUTPUT","high"]');
-            console.log('Open Relay');
+            console.log('Open Relay');*/
 
             cpf.request('["grove_rgblcd_print", 2, 0,"Underground"]');
             cpf.request('["grove_rgblcd_print", 4, 1,"NO ENTRY."]');
@@ -64,14 +66,14 @@ function loop() {
                 cpf.request('["grove_rgblcd_clear"]');
             }
 
-            cpf.set('d4', relay);   //  繼電器模組
+            /*cpf.set('d4', relay);   //  繼電器模組
             console.log('After Relay');
 
             relay = 'low';
             console.log('Relay = low')
             // cpf.setPinMode('["setPinMode", "digital", 4, "OUTPUT"]');
             cpf.setPinMode('["setPinMode","digital",4,"OUTPUT","low"]');
-            console.log('Off Relay');
+            console.log('Off Relay');*/
             // if (relay == 1)  //  繼電器模組==0(關)  繼電器模組==1(開)
             // {
             //     relay = 0;
