@@ -1,4 +1,4 @@
-var water, relay = 'low';
+var water, relay;
 var time = 0;
 var x = 0;
 var value = ['警戒', '注意', '安全'];
