@@ -1,12 +1,14 @@
 var water, light, text, relay;
 var time = 0;
 var x = 0;
-var value1 = "警戒";
+var value = ['警戒', '注意', '安全'];
+var word = ['現在地下道積水嚴重，無法行駛，請改道', '現在地下道有些許積水，請小心慢行', '現在地下道無積水，可安心行駛'];
+/*var value1 = "警戒";
 var value2 = "注意";
 var value3 = "安全";
 var word1 = "現在地下道積水嚴重，無法行駛，請改道";
 var word2 = "現在地下道有些許積水，請小心慢行";
-var word3 = "現在地下道無積水，可安心行駛";
+var word3 = "現在地下道無積水，可安心行駛";*/
 
 setup();
 
@@ -23,10 +25,8 @@ function loop() {
             console.log(time);
             if (x != 1) {
                 cpf.request('["grove_rgblcd_clear"]');
-                light = value1;
-                text = word1;
-                document.getElementById("lightValue").innerHTML = light;
-                document.getElementById("lightValue").innerHTML = text;
+                document.getElementById("lightValue").innerHTML = value[x - 1];
+                document.getElementById("word").innerHTML = word[x - 1];
                 //document.getElementById("lightValue").innerHTML = value1;
                 //document.getElementById("word").innerHTML = word1;
             }
@@ -46,10 +46,8 @@ function loop() {
         else if (water == 0 && time <= 5) {
             if (x != 2) {
                 cpf.request('["grove_rgblcd_clear"]');
-                light = value2;
-                text = word2;
-                document.getElementById("lightValue").innerHTML = light;
-                document.getElementById("lightValue").innerHTML = text;
+                document.getElementById("lightValue").innerHTML = value[x - 1];
+                document.getElementById("word").innerHTML = word[x - 1];
                 //document.getElementById("lightValue").innerHTML = value2;
                 //document.getElementById("word").innerHTML = word2;
             }
@@ -63,10 +61,8 @@ function loop() {
         else if (water == 1) {
             if (x != 3) {
                 cpf.request('["grove_rgblcd_clear"]');
-                light = value3;
-                text = word3;
-                document.getElementById("lightValue").innerHTML = light;
-                document.getElementById("lightValue").innerHTML = text;
+                document.getElementById("lightValue").innerHTML = value[x - 1];
+                document.getElementById("word").innerHTML = word[x - 1];
                 //document.getElementById("lightValue").innerHTML = value3;
                 //document.getElementById("word").innerHTML = word3;
             }
