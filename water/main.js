@@ -21,7 +21,7 @@ function loop() {
             if (x != 1) {          //  LCD板的變數
                 cpf.request('["grove_rgblcd_clear"]');
             }
-            cpf.request('["digitalWrite", 4 , 1]');
+            cpf.request('["digitalWrite", 4 , HIGH]');
             //cpf.set('d4', relay);   //  繼電器模組
             //console.log('After Relay');
 
@@ -66,7 +66,7 @@ function loop() {
                 cpf.request('["grove_rgblcd_clear"]');
             }
 
-            cpf.request('["digitalWrite", 4 , 0]');
+            cpf.request('["digitalWrite", 4 , LOW]');
 
             /*cpf.set('d4', relay);   //  繼電器模組
             console.log('After Relay');
