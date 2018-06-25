@@ -6,11 +6,12 @@ var c = document.getElementById("now").value;
 var d = document.getElementById("publishTime").value;
 
 console.log('open');
+console.log(a);
 
 $.ajax({
     url: data_url,
     type: 'GET',
-    dataType: 'jsonp',
+    dataType: 'json',
     success: function (data) {
         rain = data;
         opendata();
