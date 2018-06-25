@@ -15,7 +15,7 @@ function loop() {
     text = document.getElementById("word").value;
 
     if (cpf) {
-        if (water == 0 && time > 5) {  //  WaterSensor == 0 有水
+        if (water == 0 && time > 5) {  //  紅燈   WaterSensor == 0 有水
             console.log(time);
 
             if (x != 1) {          //  LCD板的變數
@@ -26,13 +26,14 @@ function loop() {
             cpf.request('["grove_rgblcd_set_rgb", 255, 160, 122]');
             cpf.request('["grove_setColorRGB", 0, 255, 0, 0]');
 
-            cpf.set("d4", d4);   //  繼電器模組
+            ui.set("d4", d4);   //  繼電器模組
+            // cpf.set('d4',d4);
             // cpf.repeat(relay);
 
             if (relay == 0)  //  繼電器模組==0(關)  繼電器模組==1(開)
             {
                 // relay = 1;
-                cpf.set('4 relay relay', 'd4', 1);
+                cpf.set('4 relay', 'd4', 1);
             }
 
             if (((time - 5) % 3) == 1) {
@@ -41,7 +42,7 @@ function loop() {
             time += 1;
             x = 1;
         }
-        else if (water == 0 && time <= 5) {
+        else if (water == 0 && time <= 5) {   //  黃燈
             if (x != 2) {
                 cpf.request('["grove_rgblcd_clear"]');
             }
@@ -52,7 +53,7 @@ function loop() {
             time += 1;
             x = 2;
         }
-        else if (water == 1) {    //  WaterSensor == 0 沒水
+        else if (water == 1) {    //  綠燈    WaterSensor == 0 沒水
             if (x != 3) {
                 cpf.request('["grove_rgblcd_clear"]');
             }
@@ -60,7 +61,7 @@ function loop() {
             if (relay == 1)  //  繼電器模組==0(關)  繼電器模組==1(開)
             {
                 // relay = 0;
-                cpf.set('4 relay relay', 'd4', 0);
+                cpf.set('4 relay', 'd4', 0);
             }
 
             cpf.request('["grove_rgblcd_print", 2, 0,"Underground"]');
