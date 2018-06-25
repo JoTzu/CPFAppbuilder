@@ -23,13 +23,13 @@ function opendata() {
             break;
         }
     }
-    document.getElementById("county").innerHTML = county;
-    document.getElementById("township").innerHTML = township;
-    document.getElementById("now").innerHTML = now;
-    document.getElementById("publishTime").innerHTML = publishTime;
-
     console.log(county);
     console.log(township);
     console.log(now);
     console.log(publishTime);
+
+    document.getElementById("county").innerHTML = county;
+    document.getElementById("township").innerHTML = township;
+    document.getElementById("now").innerHTML = now;
+    document.getElementById("publishTime").innerHTML = publishTime;
 }
