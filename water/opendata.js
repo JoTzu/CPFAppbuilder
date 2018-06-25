@@ -12,6 +12,7 @@ $.ajax({
 });
 
 function opendata() {
+    console.log("opendata");
 
     for (var i = 0; i < rain.length; i++) {
         var county = rain[i].County;

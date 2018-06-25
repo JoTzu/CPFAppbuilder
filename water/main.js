@@ -1,4 +1,4 @@
-var water;
+var water, relay;
 var time = 0;
 var x = 0;
 var value1 = "警戒";
@@ -14,6 +14,7 @@ cpf.request('["grove_rgblcd_clear"]');
 
 function loop() {
     water = cpf.get("d6");
+    relay = cpf.get("d2");
 
     if (cpf) {
         if (water == 0 && time > 5) {
@@ -27,6 +28,9 @@ function loop() {
             cpf.request('["grove_rgblcd_print", 4, 1,"NO ENTRY."]');
             cpf.request('["grove_rgblcd_set_rgb", 255, 160, 122]');
             cpf.request('["grove_setColorRGB", 0, 255, 0, 0]');
+
+            cpf.set("d2", d2);
+
             if (((time - 5) % 3) == 1) {
                 cpf.SetSpeech("On", "cmn-Hant-TW", "現在地下道無法通行請駕駛改道", 0.4, 0.7);
             }
@@ -67,6 +71,6 @@ loop();
 
 function setup() {
     if (cpf) {
-        cpf.setPinMode('["resetPin"], ["grove_rgblcd_begin", 16, 2], ["grove_newChainableLED",7, 8, 1], ["setPinMode", "digital", 6, "INPUT"]');
+        cpf.setPinMode('["resetPin"], ["grove_rgblcd_begin", 16, 2], ["grove_newChainableLED",7, 8, 1], ["setPinMode", "digital", 2, "INPUT"], ["setPinMode", "digital", 6, "INPUT"]');
     }
 }
