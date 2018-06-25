@@ -1,4 +1,4 @@
-var water, relay;
+var water, relay = 0;
 var time = 0;
 var x = 0;
 var value = ['警戒', '注意', '安全'];
@@ -30,14 +30,13 @@ function loop() {
             cpf.set('d4', relay);   //  繼電器模組
             console.log('After Relay');
 
-            // cpf.set('d4',d4);
-            // cpf.repeat(relay);
-
             if (relay == 0)  //  繼電器模組==0(關)  繼電器模組==1(開)
             {
                 relay = 1;
+                console.log('Relay = 1');
+                cpf.request('["setPinMode",1]');
                 console.log('Open Relay');
-                // cpf.set('4 relay', 'd4', 1);
+                // cpf.set('4 relay', 'd4', 1);;
             }
 
             if (((time - 5) % 3) == 1) {
@@ -65,6 +64,8 @@ function loop() {
             if (relay == 1)  //  繼電器模組==0(關)  繼電器模組==1(開)
             {
                 relay = 0;
+                console.log('Relay = 0');
+                cpf.request('["setPinMode",0]');
                 console.log('Off Relay');
                 // cpf.set('4 relay', 'd4', 0);
             }
