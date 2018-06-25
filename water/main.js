@@ -27,7 +27,6 @@ function loop() {
             cpf.request('["grove_rgblcd_set_rgb", 255, 160, 122]');
             cpf.request('["grove_setColorRGB", 0, 255, 0, 0]');
 
-            console.log('Before Relay');
             cpf.set('d4', relay);   //  繼電器模組
             console.log('After Relay');
 
@@ -36,8 +35,9 @@ function loop() {
 
             if (relay == 0)  //  繼電器模組==0(關)  繼電器模組==1(開)
             {
-                // relay = 1;
-                cpf.set('4 relay', 'd4', 1);
+                relay = 1;
+                console.log('Open Relay');
+                // cpf.set('4 relay', 'd4', 1);
             }
 
             if (((time - 5) % 3) == 1) {
@@ -64,8 +64,9 @@ function loop() {
 
             if (relay == 1)  //  繼電器模組==0(關)  繼電器模組==1(開)
             {
-                // relay = 0;
-                cpf.set('4 relay', 'd4', 0);
+                relay = 0;
+                console.log('Off Relay');
+                // cpf.set('4 relay', 'd4', 0);
             }
 
             cpf.request('["grove_rgblcd_print", 2, 0,"Underground"]');
