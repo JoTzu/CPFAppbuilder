@@ -29,8 +29,8 @@ function opendata() {
     console.log(now);
     console.log(publishTime);
 
-    document.getElementById("county").innerHTML = county;
-    document.getElementById("township").innerHTML = township;
-    document.getElementById("now").innerHTML = now;
-    document.getElementById("publishTime").innerHTML = publishTime;
+    document.getElementById('county').innerHTML = county;
+    document.getElementById('township').innerHTML = township;
+    document.getElementById('now').innerHTML = now;
+    document.getElementById('publishTime').innerHTML = publishTime;
 }
