@@ -1,4 +1,4 @@
-var water, relay;
+var water, light, text, relay;
 var time = 0;
 var x = 0;
 var value1 = "警戒";
@@ -15,12 +15,18 @@ cpf.request('["grove_rgblcd_clear"]');
 function loop() {
     water = cpf.get("d6");
     relay = cpf.get("d5");
+    light = document.getElementById("lightValue").value;
+    text = document.getElementById("word").value;
 
     if (cpf) {
         if (water == 0 && time > 5) {
             console.log(time);
             if (x != 1) {
                 cpf.request('["grove_rgblcd_clear"]');
+                light = value1;
+                text = word1;
+                document.getElementById("lightValue").innerHTML = light;
+                document.getElementById("lightValue").innerHTML = text;
                 //document.getElementById("lightValue").innerHTML = value1;
                 //document.getElementById("word").innerHTML = word1;
             }
@@ -40,6 +46,10 @@ function loop() {
         else if (water == 0 && time <= 5) {
             if (x != 2) {
                 cpf.request('["grove_rgblcd_clear"]');
+                light = value2;
+                text = word2;
+                document.getElementById("lightValue").innerHTML = light;
+                document.getElementById("lightValue").innerHTML = text;
                 //document.getElementById("lightValue").innerHTML = value2;
                 //document.getElementById("word").innerHTML = word2;
             }
@@ -53,6 +63,10 @@ function loop() {
         else if (water == 1) {
             if (x != 3) {
                 cpf.request('["grove_rgblcd_clear"]');
+                light = value3;
+                text = word3;
+                document.getElementById("lightValue").innerHTML = light;
+                document.getElementById("lightValue").innerHTML = text;
                 //document.getElementById("lightValue").innerHTML = value3;
                 //document.getElementById("word").innerHTML = word3;
             }
