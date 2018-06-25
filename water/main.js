@@ -7,12 +7,16 @@ var word = ['現在地下道積水嚴重，無法行駛，請改道', '現在地
 setup();
 
 function test() {
+    relay = cpf.get('d4');
+    console.log(relay);
+    console.log(x);
+
     if (x == 0) {
-        cpf.request('["digitalWrite", 4 , HIGH]');
+        cpf.request('["digitalWrite", 4 , 0]');
         x = 1;
     }
     else {
-        cpf.request('["digitalWrite", 4 , LOW]');
+        cpf.request('["digitalWrite", 4 , 1]');
         x = 0;
     }
 } setTimeout(test, 2000);
