@@ -22,22 +22,28 @@ function loop() {
             if (x != 1) {          //  LCD板的變數
                 cpf.request('["grove_rgblcd_clear"]');
             }
+
+            cpf.set('d4', relay);   //  繼電器模組
+            console.log('After Relay');
+
+            relay = 1;
+            console.log('Relay = 1');
+            cpf.request('["setPinMode",high]');
+            console.log('Open Relay');
+
             cpf.request('["grove_rgblcd_print", 2, 0,"Underground"]');
             cpf.request('["grove_rgblcd_print", 4, 1,"NO ENTRY."]');
             cpf.request('["grove_rgblcd_set_rgb", 255, 160, 122]');
             cpf.request('["grove_setColorRGB", 0, 255, 0, 0]');
 
-            cpf.set('d4', relay);   //  繼電器模組
-            console.log('After Relay');
-
-            if (relay == 0)  //  繼電器模組==0(關)  繼電器模組==1(開)
-            {
-                relay = 1;
-                console.log('Relay = 1');
-                cpf.request('["setPinMode",1]');
-                console.log('Open Relay');
-                // cpf.set('4 relay', 'd4', 1);;
-            }
+            // if (relay == 0)  //  繼電器模組==0(關)  繼電器模組==1(開)
+            // {
+            //     relay = 1;
+            //     console.log('Relay = 1');
+            //     cpf.request('["setPinMode",1]');
+            //     console.log('Open Relay');
+            //     // cpf.set('4 relay', 'd4', 1);;
+            // }
 
             if (((time - 5) % 3) == 1) {
                 cpf.SetSpeech("On", "cmn-Hant-TW", "現在地下道無法通行請駕駛改道", 0.4, 0.7);
@@ -61,14 +67,21 @@ function loop() {
                 cpf.request('["grove_rgblcd_clear"]');
             }
 
-            if (relay == 1)  //  繼電器模組==0(關)  繼電器模組==1(開)
-            {
-                relay = 0;
-                console.log('Relay = 0');
-                cpf.request('["setPinMode",0]');
-                console.log('Off Relay');
-                // cpf.set('4 relay', 'd4', 0);
-            }
+            cpf.set('d4', relay);   //  繼電器模組
+            console.log('After Relay');
+
+            relay = 0;
+            console.log('Relay = 0');
+            cpf.request('["setPinMode",low]');
+            console.log('Off Relay');
+            // if (relay == 1)  //  繼電器模組==0(關)  繼電器模組==1(開)
+            // {
+            //     relay = 0;
+            //     console.log('Relay = 0');
+            //     cpf.request('["setPinMode",0]');
+            //     console.log('Off Relay');
+            //     // cpf.set('4 relay', 'd4', 0);
+            // }
 
             cpf.request('["grove_rgblcd_print", 2, 0,"Underground"]');
             cpf.request('["grove_rgblcd_print", 2, 1,"Road safely."]');
@@ -88,6 +101,6 @@ loop();
 
 function setup() {
     if (cpf) {
-        cpf.setPinMode('["resetPin"], ["grove_rgblcd_begin", 16, 2], ["grove_newChainableLED",7, 8, 1], ["setPinMode", "digital", 4, "INPUT"], ["setPinMode", "digital", 6, "INPUT"]');
+        cpf.setPinMode('["resetPin"], ["grove_rgblcd_begin", 16, 2], ["grove_newChainableLED",7, 8, 1], ["setPinMode", "digital", 4, "OUTPUT"], ["setPinMode", "digital", 6, "INPUT"]');
     }
 }
