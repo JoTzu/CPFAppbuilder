@@ -67,7 +67,6 @@ function loop() {
             }
 
             cpf.request('["digitalWrite", 4 , LOW]');
-
             /*cpf.set('d4', relay);   //  繼電器模組
             console.log('After Relay');
 

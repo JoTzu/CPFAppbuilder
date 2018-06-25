@@ -2,6 +2,7 @@ var data_url = 'https://opendata.epa.gov.tw/ws/Data/RainTenMin/?$format=json&cal
 var rain;
 
 console.log('open');
+console.log(data_url);
 
 $.ajax({
     url: data_url,
