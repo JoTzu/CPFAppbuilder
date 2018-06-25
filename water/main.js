@@ -1,6 +1,12 @@
 var water;
 var time = 0;
 var x = 0;
+var value1 = "警戒";
+var value2 = "注意";
+var value3 = "安全";
+var word1 = "現在地下道積水嚴重，無法行駛，請改道";
+var word2 = "現在地下道有些許積水，請小心慢行";
+var word3 = "現在地下道無積水，可安心行駛";
 
 setup();
 
@@ -14,8 +20,8 @@ function loop() {
             console.log(time);
             if (x != 1) {
                 cpf.request('["grove_rgblcd_clear"]');
-                document.getElementById("lightValue").innerHTML = "警戒";
-                document.getElementById("word").innerHTML = "現在地下道積水嚴重，無法行駛，請改道";
+                document.getElementById("lightValue").innerHTML = value1;
+                document.getElementById("word").innerHTML = word1;
             }
             cpf.request('["grove_rgblcd_print", 2, 0,"Underground"]');
             cpf.request('["grove_rgblcd_print", 4, 1,"NO ENTRY."]');
@@ -30,8 +36,8 @@ function loop() {
         else if (water == 0 && time <= 5) {
             if (x != 2) {
                 cpf.request('["grove_rgblcd_clear"]');
-                document.getElementById("lightValue").innerHTML = "注意";
-                document.getElementById("word").innerHTML = "現在地下道有些許積水，請小心慢行";
+                document.getElementById("lightValue").innerHTML = value2;
+                document.getElementById("word").innerHTML = word2;
             }
             cpf.request('["grove_rgblcd_print", 2, 0,"Underground"]');
             cpf.request('["grove_rgblcd_print", 0, 1,"Drive carefully."]');
@@ -43,8 +49,8 @@ function loop() {
         else if (water == 1) {
             if (x != 3) {
                 cpf.request('["grove_rgblcd_clear"]');
-                document.getElementById("lightValue").innerHTML = "安全";
-                document.getElementById("word").innerHTML = "現在地下道無積水，可安心行駛";
+                document.getElementById("lightValue").innerHTML = value3;
+                document.getElementById("word").innerHTML = word3;
             }
             cpf.request('["grove_rgblcd_print", 2, 0,"Underground"]');
             cpf.request('["grove_rgblcd_print", 2, 1,"Road safely."]');
