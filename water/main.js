@@ -10,7 +10,8 @@ cpf.request('["grove_rgblcd_clear"]');
 
 function loop() {
     water = cpf.get("d6");   //  WaterSensor
-    relay = cpf.get("d4");   //  繼電器模組
+    relay = cpf.get("d4");   //  取得繼電器模組pin
+
     light = document.getElementById("lightValue").value;
     text = document.getElementById("word").value;
 
@@ -26,7 +27,8 @@ function loop() {
             cpf.request('["grove_rgblcd_set_rgb", 255, 160, 122]');
             cpf.request('["grove_setColorRGB", 0, 255, 0, 0]');
 
-            ui.set("d4", d4);   //  繼電器模組
+            ui.set("d4", relay);   //  繼電器模組
+
             // cpf.set('d4',d4);
             // cpf.repeat(relay);
 
