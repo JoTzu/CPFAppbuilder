@@ -1,4 +1,4 @@
-var water, relay = 0;
+var water, relay = 'low';
 var time = 0;
 var x = 0;
 var value = ['警戒', '注意', '安全'];
@@ -24,11 +24,12 @@ function loop() {
             }
 
             cpf.set('d4', relay);   //  繼電器模組
+            // cpf.set('d4', relay);   //  繼電器模組
             console.log('After Relay');
 
-            relay = 1;
-            console.log('Relay = 1');
-            cpf.request('["setPinMode",high]');
+            relay = 'high';
+            console.log('Relay = high');
+            cpf.setPinMode('["d4","digital",relay]');
             console.log('Open Relay');
 
             cpf.request('["grove_rgblcd_print", 2, 0,"Underground"]');
@@ -70,9 +71,10 @@ function loop() {
             cpf.set('d4', relay);   //  繼電器模組
             console.log('After Relay');
 
-            relay = 0;
-            console.log('Relay = 0');
-            cpf.request('["setPinMode",low]');
+            relay = 'low';
+            console.log('Relay = low');
+            cpf.setPinMode('["d4","digital",relay]');
+            // cpf.request('["setPinMode",relay]');
             console.log('Off Relay');
             // if (relay == 1)  //  繼電器模組==0(關)  繼電器模組==1(開)
             // {
