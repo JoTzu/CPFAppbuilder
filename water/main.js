@@ -6,6 +6,7 @@ var word = ['現在地下道積水嚴重，無法行駛，請改道', '現在地
 
 setup();
 
+cpf.request('["grove_setColorRGB", 0, 255, 0, 255]');
 cpf.request('["grove_rgblcd_clear"]');
 cpf.request('["digitalWrite", 4 , 0]');
 
@@ -19,7 +20,7 @@ function loop() {
             if (x != 1) {          //  LCD板的變數
                 cpf.request('["grove_rgblcd_clear"]');
             }
-            //cpf.request('["digitalWrite", 4 , 1]');
+            cpf.request('["digitalWrite", 4 , 1]');
             cpf.request('["grove_rgblcd_print", 2, 0,"Underground"]');
             cpf.request('["grove_rgblcd_print", 4, 1,"NO ENTRY."]');
             cpf.request('["grove_rgblcd_set_rgb", 255, 160, 122]');
@@ -47,7 +48,7 @@ function loop() {
             if (x != 3) {
                 cpf.request('["grove_rgblcd_clear"]');
             }
-            //cpf.request('["digitalWrite", 4 , 0]');
+            cpf.request('["digitalWrite", 4 , 0]');
             cpf.request('["grove_rgblcd_print", 2, 0,"Underground"]');
             cpf.request('["grove_rgblcd_print", 2, 1,"Road safely."]');
             cpf.request('["grove_rgblcd_set_rgb", 124, 252, 0]');
