@@ -6,9 +6,6 @@ var word = ['現在地下道積水嚴重，無法行駛，請改道', '現在地
 
 setup();
 
-cpf.request('["grove_setColorRGB", 0, 255, 0, 255]');
-cpf.request('["grove_rgblcd_clear"]');
-cpf.request('["digitalWrite", 4 , 0]');
 
 function loop() {
     water = cpf.get("d6");   //  WaterSensor
@@ -56,7 +53,7 @@ function loop() {
             cpf.request('["grove_rgblcd_print", 2, 1,"Road safely."]');
             cpf.request('["grove_rgblcd_set_rgb", 124, 252, 0]');
             cpf.request('["grove_setColorRGB", 0, 0, 255, 0]');
-
+            console.log('22  ' + time);
             if (x == 3) {
                 cpf.request('["digitalWrite", 4 , 0]');
             }
@@ -77,4 +74,8 @@ function setup() {
     if (cpf) {
         cpf.setPinMode('["resetPin"], ["grove_rgblcd_begin", 16, 2], ["grove_newChainableLED",7, 8, 1], ["setPinMode", "digital", 4, "OUTPUT"], ["setPinMode", "digital", 6, "INPUT"]');
     }
+    cpf.request('["grove_setColorRGB", 0, 255, 0, 255]');
+    cpf.request('["grove_rgblcd_clear"]');
+    cpf.request('["digitalWrite", 4 , 0]');
+
 }
