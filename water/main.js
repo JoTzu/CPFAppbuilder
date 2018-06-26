@@ -81,6 +81,6 @@ loop();
 
 function setup() {
     if (cpf) {
-        cpf.setPinMode('["resetPin"], ["grove_rgblcd_begin", 16, 2], ["grove_newChainableLED",7, 8, 1], ["setPinMode", "digital", 4, "OUTPUT"], ["setPinMode", "digital", 6, "INPUT"]');
+        cpf.setPinMode('["resetPin"], ["grove_rgblcd_begin", 16, 2], ["grove_newChainableLED",7, 8, 1], ["setPinMode", "digital", 2, "OUTPUT"], ["setPinMode", "digital", 6, "INPUT"]');
     }
 }
