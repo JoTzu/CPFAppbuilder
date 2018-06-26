@@ -12,7 +12,7 @@ function loop() {
     if (cpf) {
         if (water == 0) {
             // 紅燈
-            cpf.request('["grove_setColorRGB", 0, 255, 0, 0]');
+            cpf.request('["grove_setColorRGB", 0, 255, 255, 0]');
             cpf.request('["digitalWrite", 4 , 1]');
         }
         else {
@@ -20,8 +20,8 @@ function loop() {
             cpf.request('["grove_setColorRGB", 0, 0, 255, 0]');
             cpf.request('["digitalWrite", 4 , 0]');
         }
-        document.getElementById("lightValue").innerHTML = value[2];
-        document.getElementById("word").innerHTML = word[2];
+        document.getElementById("lightValue").innerHTML = value[1];
+        document.getElementById("word").innerHTML = word[1];
     }
     setTimeout(loop, 1000);
 }
@@ -35,20 +35,7 @@ loop();
 // function loop() {
 //     water = cpf.get("d6");   //  WaterSensor
 //     // cpf.request('["grove_setColorRGB", 0, 0, 0, 255]');
-//     if (cpf) {
-//         if (water == 0) {
-//             //紅燈
-//             cpf.request('["grove_setColorRGB", 0, 255, 0, 0]');
-//             // cpf.request('["grove_rgblcd_print", 2, 1,"WWWWW"]');
-//             cpf.request('["digitalWrite", 4 , 1]');
-//         }
-//         else {
-//             //綠燈
-//             cpf.request('["grove_setColorRGB", 0, 0, 255, 0]');
-//             // cpf.request('["grove_rgblcd_print", 2, 1,"CCCCCC"]');
-//             cpf.request('["digitalWrite", 4 , 0]');
-//         }
-//         console.log(water, time);
+
 //         if (water == 0 && time > 5) {  //  紅燈   WaterSensor == 0 有水
 //             console.log(time);
 //             if (x != 1) {          //  LCD板的變數
