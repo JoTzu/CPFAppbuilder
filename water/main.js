@@ -20,11 +20,12 @@ function loop() {
             if (x != 1) {          //  LCD板的變數
                 cpf.request('["grove_rgblcd_clear"]');
             }
-            cpf.request('["digitalWrite", 4 , 1]');
+
             cpf.request('["grove_rgblcd_print", 2, 0,"Underground"]');
             cpf.request('["grove_rgblcd_print", 4, 1,"NO ENTRY."]');
             cpf.request('["grove_rgblcd_set_rgb", 255, 160, 122]');
             cpf.request('["grove_setColorRGB", 0, 255, 0, 0]');
+            cpf.request('["digitalWrite", 4 , 1]');
 
             if (((time - 5) % 3) == 1) {
                 cpf.SetSpeech("On", "cmn-Hant-TW", "現在地下道無法通行請駕駛改道", 0.4, 0.7);
@@ -45,14 +46,21 @@ function loop() {
             x = 2;
         }
         else if (water == 1) {    //  綠燈    WaterSensor == 1 沒水
+            console.log('11  ' + time);
+
             if (x != 3) {
                 cpf.request('["grove_rgblcd_clear"]');
             }
-            cpf.request('["digitalWrite", 4 , 0]');
+
             cpf.request('["grove_rgblcd_print", 2, 0,"Underground"]');
             cpf.request('["grove_rgblcd_print", 2, 1,"Road safely."]');
             cpf.request('["grove_rgblcd_set_rgb", 124, 252, 0]');
             cpf.request('["grove_setColorRGB", 0, 0, 255, 0]');
+
+            if (x == 3) {
+                cpf.request('["digitalWrite", 4 , 0]');
+            }
+
             time = 0;
             x = 3;
         }
