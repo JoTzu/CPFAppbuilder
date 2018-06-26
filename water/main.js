@@ -12,7 +12,7 @@ function loop() {
     if (cpf) {
         if (water == 0) {
             // 紅燈
-            cpf.request('["grove_setColorRGB", 0, 255, 255, 0]');
+            cpf.request('["grove_setColorRGB", 0, 255, 0, 0]');
             cpf.request('["digitalWrite", 4 , 1]');
         }
         else {
@@ -20,8 +20,8 @@ function loop() {
             cpf.request('["grove_setColorRGB", 0, 0, 255, 0]');
             cpf.request('["digitalWrite", 4 , 0]');
         }
-        document.getElementById("lightValue").innerHTML = value[1];
-        document.getElementById("word").innerHTML = word[1];
+        document.getElementById("lightValue").innerHTML = value[0];
+        document.getElementById("word").innerHTML = word[0];
     }
     setTimeout(loop, 1000);
 }
