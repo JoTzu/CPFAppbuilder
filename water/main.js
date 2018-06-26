@@ -21,8 +21,8 @@ function loop() {
                 cpf.request('["grove_rgblcd_clear"]');
             }
 
-            cpf.request('["grove_rgblcd_print", 2, 0,"Underground"]');
-            cpf.request('["grove_rgblcd_print", 4, 1,"NO ENTRY."]');
+            // cpf.request('["grove_rgblcd_print", 2, 0,"Underground"]');
+            // cpf.request('["grove_rgblcd_print", 4, 1,"NO ENTRY."]');
             cpf.request('["grove_rgblcd_set_rgb", 255, 160, 122]');
             cpf.request('["grove_setColorRGB", 0, 255, 0, 0]');
 
@@ -41,8 +41,8 @@ function loop() {
                 cpf.request('["grove_rgblcd_clear"]');
             }
             //cpf.request('["digitalWrite", 4 , 0]');
-            cpf.request('["grove_rgblcd_print", 2, 0,"Underground"]');
-            cpf.request('["grove_rgblcd_print", 0, 1,"Drive carefully."]');
+            // cpf.request('["grove_rgblcd_print", 2, 0,"Underground"]');
+            // cpf.request('["grove_rgblcd_print", 0, 1,"Drive carefully."]');
             cpf.request('["grove_rgblcd_set_rgb", 238, 238, 0]');
             cpf.request('["grove_setColorRGB", 0, 255, 255, 0]');
             time += 1;
@@ -55,9 +55,10 @@ function loop() {
                 cpf.request('["grove_rgblcd_clear"]');
             }
 
-            cpf.request('["grove_rgblcd_print", 2, 0,"Underground"]');
-            cpf.request('["grove_rgblcd_print", 2, 1,"Road safely."]');
+            // cpf.request('["grove_rgblcd_print", 2, 0,"Underground"]');
+            // cpf.request('["grove_rgblcd_print", 2, 1,"Road safely."]');
             cpf.request('["grove_rgblcd_set_rgb", 124, 252, 0]');
+            console.log(77777);
             cpf.request('["grove_setColorRGB", 0, 0, 255, 0]');
             console.log('2  ' + time);
             if (x == 3) {
