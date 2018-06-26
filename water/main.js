@@ -18,13 +18,13 @@ function loop() {
         if (water == 0) {
             //紅燈
             cpf.request('["grove_setColorRGB", 0, 255, 0, 0]');
-            cpf.request('["grove_rgblcd_print", 2, 1,"WWWWW"]');
+            // cpf.request('["grove_rgblcd_print", 2, 1,"WWWWW"]');
             cpf.request('["digitalWrite", 4 , 1]');
         }
         else {
             //綠燈
             cpf.request('["grove_setColorRGB", 0, 0, 255, 0]');
-            cpf.request('["grove_rgblcd_print", 2, 1,"CCCCCC"]');
+            // cpf.request('["grove_rgblcd_print", 2, 1,"CCCCCC"]');
             cpf.request('["digitalWrite", 4 , 0]');
         }
         // console.log(water, time);
@@ -94,6 +94,6 @@ loop();
 function setup() {
     if (cpf) {
         // cpf.setPinMode('["resetPin"], ["grove_rgblcd_begin", 16, 2], ["grove_newChainableLED",7, 8, 1], ["setPinMode", "digital", 4, "OUTPUT"], ["setPinMode", "digital", 6, "INPUT"]');
-        cpf.setPinMode('["resetPin"],["grove_rgblcd_begin", 16, 2],["grove_newChainableLED",7, 8, 1],["setPinMode", "digital", 6, "INPUT"],["setPinMode", "digital", 4, "OUTPUT"]');
+        cpf.setPinMode('["resetPin"],["grove_newChainableLED",7, 8, 1],["setPinMode", "digital", 6, "INPUT"],["setPinMode", "digital", 4, "OUTPUT"]');
     }
 }
