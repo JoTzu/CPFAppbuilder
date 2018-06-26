@@ -9,11 +9,10 @@ setup();
 
 function loop() {
     water = cpf.get("d6");   //  WaterSensor
-
+    cpf.request('["grove_setColorRGB", 0, 255, 255, 0]');
     if (cpf) {
         if (water == 0 && time > 5) {  //  紅燈   WaterSensor == 0 有水
             console.log(time);
-
             if (x != 1) {          //  LCD板的變數
                 cpf.request('["grove_rgblcd_clear"]');
             }
