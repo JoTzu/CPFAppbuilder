@@ -6,9 +6,13 @@ var word = ['現在地下道積水嚴重，無法行駛，請改道', '現在地
 
 setup();
 
+cpf.request('["grove_setColorRGB", 0, 255, 0, 255]');
+cpf.request('["grove_rgblcd_clear"]');
+cpf.request('["digitalWrite", 4 , 0]');
 
 function loop() {
     water = cpf.get("d6");   //  WaterSensor
+    cpf.request('["grove_setColorRGB", 0, 0, 0, 255]');
 
     if (cpf) {
         if (water == 0 && time > 5) {  //  紅燈   WaterSensor == 0 有水
@@ -21,7 +25,10 @@ function loop() {
             cpf.request('["grove_rgblcd_print", 4, 1,"NO ENTRY."]');
             cpf.request('["grove_rgblcd_set_rgb", 255, 160, 122]');
             cpf.request('["grove_setColorRGB", 0, 255, 0, 0]');
-            cpf.request('["digitalWrite", 4 , 1]');
+
+            if (x == 1) {
+                cpf.request('["digitalWrite", 4 , 1]');
+            }
 
             if (((time - 5) % 3) == 1) {
                 cpf.SetSpeech("On", "cmn-Hant-TW", "現在地下道無法通行請駕駛改道", 0.4, 0.7);
@@ -73,8 +80,4 @@ function setup() {
     if (cpf) {
         cpf.setPinMode('["resetPin"], ["grove_rgblcd_begin", 16, 2], ["grove_newChainableLED",7, 8, 1], ["setPinMode", "digital", 4, "OUTPUT"], ["setPinMode", "digital", 6, "INPUT"]');
     }
-    cpf.request('["grove_setColorRGB", 0, 255, 0, 255]');
-    cpf.request('["grove_rgblcd_clear"]');
-    cpf.request('["digitalWrite", 4 , 0]');
-
 }
