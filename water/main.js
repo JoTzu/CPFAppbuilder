@@ -20,8 +20,8 @@ function loop() {
             cpf.request('["grove_setColorRGB", 0, 0, 255, 0]');
             cpf.request('["digitalWrite", 4 , 0]');
         }
-        document.getElementById("lightValue").innerHTML = value[x - 1];
-        document.getElementById("word").innerHTML = word[x - 1];
+        document.getElementById("lightValue").innerHTML = value[0];
+        document.getElementById("word").innerHTML = word[0];
     }
     setTimeout(loop, 1000);
 }
