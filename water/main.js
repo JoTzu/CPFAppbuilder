@@ -9,7 +9,7 @@ setup();
 
 function loop() {
     water = cpf.get("d6");   //  WaterSensor
-    cpf.request('["grove_setColorRGB", 0, 255, 255, 0]');
+
     if (cpf) {
         if (water == 0 && time > 5) {  //  紅燈   WaterSensor == 0 有水
             console.log(time);
@@ -21,7 +21,7 @@ function loop() {
             cpf.request('["grove_rgblcd_print", 4, 1,"NO ENTRY."]');
             cpf.request('["grove_rgblcd_set_rgb", 255, 160, 122]');
             cpf.request('["grove_setColorRGB", 0, 255, 0, 0]');
-            // cpf.request('["digitalWrite", 4 , 1]');
+            cpf.request('["digitalWrite", 4 , 1]');
 
             if (((time - 5) % 3) == 1) {
                 cpf.SetSpeech("On", "cmn-Hant-TW", "現在地下道無法通行請駕駛改道", 0.4, 0.7);
@@ -53,9 +53,9 @@ function loop() {
             cpf.request('["grove_rgblcd_set_rgb", 124, 252, 0]');
             cpf.request('["grove_setColorRGB", 0, 0, 255, 0]');
             console.log('2  ' + time);
-            // if (x == 3) {
-            //     cpf.request('["digitalWrite", 4 , 0]');
-            // }
+            if (x == 3) {
+                cpf.request('["digitalWrite", 4 , 0]');
+            }
 
             time = 0;
             x = 3;
@@ -75,6 +75,6 @@ function setup() {
     }
     cpf.request('["grove_setColorRGB", 0, 255, 0, 255]');
     cpf.request('["grove_rgblcd_clear"]');
-    // cpf.request('["digitalWrite", 4 , 0]');
+    cpf.request('["digitalWrite", 4 , 0]');
 
 }
