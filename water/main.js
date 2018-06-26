@@ -42,17 +42,17 @@ function loop() {
             x = 2;
         }
         else if (water == 1) {    //  綠燈    WaterSensor == 1 沒水
-            console.log('11  ' + time);
+            console.log('1  ' + time);
 
             if (x != 3) {
                 cpf.request('["grove_rgblcd_clear"]');
             }
 
-            // cpf.request('["grove_rgblcd_print", 2, 0,"Underground"]');
-            // cpf.request('["grove_rgblcd_print", 2, 1,"Road safely."]');
-            // cpf.request('["grove_rgblcd_set_rgb", 124, 252, 0]');
+            cpf.request('["grove_rgblcd_print", 2, 0,"Underground"]');
+            cpf.request('["grove_rgblcd_print", 2, 1,"Road safely."]');
+            cpf.request('["grove_rgblcd_set_rgb", 124, 252, 0]');
             cpf.request('["grove_setColorRGB", 0, 0, 255, 0]');
-            console.log('22  ' + time);
+            console.log('2  ' + time);
             if (x == 3) {
                 cpf.request('["digitalWrite", 4 , 0]');
             }
