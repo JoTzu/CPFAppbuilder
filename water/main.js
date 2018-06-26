@@ -18,9 +18,9 @@ function loop() {
     if (cpf) {
         if (water == 0 && time > 5) {  //  紅燈   WaterSensor == 0 有水
             console.log(time);
-            if (x != 1) {          //  LCD板的變數
-                cpf.request('["grove_rgblcd_clear"]');
-            }
+            // if (x != 1) {          //  LCD板的變數
+            //     cpf.request('["grove_rgblcd_clear"]');
+            // }
 
             cpf.request('["grove_rgblcd_print", 2, 0,"遇水則照"]');
             cpf.request('["grove_rgblcd_print", 4, 1,"NO ENTRY."]');
@@ -38,9 +38,9 @@ function loop() {
             x = 1;
         }
         else if (water == 0 && time <= 5) {   //  黃燈
-            if (x != 2) {
-                cpf.request('["grove_rgblcd_clear"]');
-            }
+            // if (x != 2) {
+            //     cpf.request('["grove_rgblcd_clear"]');
+            // }
             //cpf.request('["digitalWrite", 4 , 0]');
             cpf.request('["grove_rgblcd_print", 2, 0,"遇水則照"]');
             cpf.request('["grove_rgblcd_print", 0, 1,"Drive carefully."]');
@@ -52,9 +52,9 @@ function loop() {
         else if (water == 1) {    //  綠燈    WaterSensor == 1 沒水
             console.log('1  ' + time);
 
-            if (x != 3) {
-                cpf.request('["grove_rgblcd_clear"]');
-            }
+            // if (x != 3) {
+            //     cpf.request('["grove_rgblcd_clear"]');
+            // }
 
             cpf.request('["grove_rgblcd_print", 2, 0,"遇水則照"]');
             cpf.request('["grove_rgblcd_print", 2, 1,"Road safely."]');
