@@ -75,7 +75,7 @@ function loop() {
         document.getElementById("lightValue").innerHTML = value[x - 1];
         document.getElementById("word").innerHTML = word[x - 1];
 
-    } setTimeout(loop, 1000);
+    } /*setTimeout(loop, 1000);*/
 }
 loop();
 
