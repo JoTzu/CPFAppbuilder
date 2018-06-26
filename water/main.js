@@ -8,14 +8,14 @@ setup();
 
 cpf.request('["grove_setColorRGB", 0, 255, 0, 255]');
 cpf.request('["grove_rgblcd_print", 2, 0,"WaterClean"]');
-cpf.request('["grove_rgblcd_print", 2, 1,"Loading."]');
+cpf.request('["grove_rgblcd_print", 2, 1,"Loading..."]');
 cpf.request('["digitalWrite", 4 , 0]');
 
 function loop() {
     water = cpf.get("d6");   //  WaterSensor
     cpf.request('["grove_setColorRGB", 0, 0, 0, 255]');
-
     if (cpf) {
+        console.log(water, time);
         if (water == 0 && time > 5) {  //  紅燈   WaterSensor == 0 有水
             console.log(time);
             // if (x != 1) {          //  LCD板的變數
@@ -70,12 +70,12 @@ function loop() {
             time = 0;
             x = 3;
         }
-        console.log(water);
 
         document.getElementById("lightValue").innerHTML = value[x - 1];
         document.getElementById("word").innerHTML = word[x - 1];
 
-    } /*setTimeout(loop, 1000);*/
+    }
+    setTimeout(loop, 1000);
 }
 loop();
 
