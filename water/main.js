@@ -12,12 +12,17 @@ function loop() {
     if (cpf) {
         if (water == 0) {
             cpf.request('["grove_setColorRGB", 0, 255, 0, 0]');
-            cpf.request('["digitalWrite", 4 , 1]');
-            cpf.SetSpeech("On", "cmn-Hant-TW", "現在地下道無法通行請駕駛改道", 0.4, 0.7);
+
+            if (((time - 5) % 3) == 1) {
+                cpf.SetSpeech("On", "cmn-Hant-TW", "現在地下道無法通行請駕駛改道", 0.4, 0.7);
+            }
+            time += 1;
         }
         else {
             cpf.request('["grove_setColorRGB", 0, 0, 255, 0]');
             cpf.request('["digitalWrite", 4 , 0]');
+
+            time = 0;
         }
         document.getElementById("lightValue").innerHTML = value[0];
         document.getElementById("word").innerHTML = word[0];
@@ -41,7 +46,7 @@ loop();
 //         }
 
 //         cpf.request('["grove_setColorRGB", 0, 255, 0, 0]');
-//         cpf.request('["grove_rgblcd_print", 2, 0,"WaterClean"]');
+//         cpf.request('["grove_rgblcd_print", 2, 0,"Underground"]');
 //         cpf.request('["grove_rgblcd_print", 4, 1,"NO ENTRY."]');
 //         cpf.request('["grove_rgblcd_set_rgb", 255, 160, 122]');
 
@@ -61,7 +66,7 @@ loop();
 //         }
 //         cpf.request('["digitalWrite", 4 , 0]');
 //         cpf.request('["grove_setColorRGB", 0, 255, 255, 0]');
-//         cpf.request('["grove_rgblcd_print", 2, 0,"WaterClean"]');
+//         cpf.request('["grove_rgblcd_print", 2, 0,"Underground"]');
 //         cpf.request('["grove_rgblcd_print", 0, 1,"Drive carefully."]');
 //         cpf.request('["grove_rgblcd_set_rgb", 238, 238, 0]');
 //         time += 1;
@@ -75,11 +80,9 @@ loop();
 //         }
 
 //         cpf.request('["grove_setColorRGB", 0, 0, 255, 0]');
-//         //cpf.request('["grove_rgblcd_print", 2, 0,"Undergrand"]');
-//         //cpf.request('["grove_rgblcd_print", 2, 1,"Road safely."]');
-//         //cpf.request('["grove_rgblcd_set_rgb", 124, 252, 0]');
-
-//         console.log('2  ' + time);
+//         cpf.request('["grove_rgblcd_print", 2, 0,"Undergrand"]');
+//         cpf.request('["grove_rgblcd_print", 2, 1,"Road safely."]');
+//         cpf.request('["grove_rgblcd_set_rgb", 124, 252, 0]');
 
 //         if (x == 3) {
 //             cpf.request('["digitalWrite", 4 , 0]');
@@ -94,7 +97,6 @@ loop();
 
 // }
 // setTimeout(loop, 1000);
-// }
 // loop();
 
 function setup() {
